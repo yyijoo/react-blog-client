@@ -7,13 +7,15 @@ import Til from "pages/til/Til";
 class App extends Component {
   render() {
     return (
-      <HashRouter>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Til} />
-          <Route component={Error} />
-        </Switch>
-      </HashRouter>
+      <div>
+        <HashRouter>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Til} />
+            <Route component={Error} />
+          </Switch>
+        </HashRouter>
+      </div>
     );
   }
 }
