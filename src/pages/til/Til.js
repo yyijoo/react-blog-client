@@ -31,6 +31,7 @@ const TilContentLeft = styled.div`
 
   .week {
     font-size: 1.5rem;
+    margin-bottom: 8px;
   }
 
   .period {
@@ -39,7 +40,7 @@ const TilContentLeft = styled.div`
 `;
 
 const TilContentCenter = styled.div`
-  flex: 3;
+  flex: 4;
 `;
 
 const TilContentRight = styled.div`
