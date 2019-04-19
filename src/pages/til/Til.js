@@ -11,11 +11,13 @@ const SearchBarDiv = styled.div`
   height: 8rem;
   border: 1px solid red;
   flex-shrink: 0;
-  flex-grow: 1;
+  flex-grow: 0;
+  flex-basis: 100%;
 `;
 
 const TilContentWrapper = styled.div`
   border: 1px solid blue;
+  background: blue;
 `;
 
 class Til extends Component {
