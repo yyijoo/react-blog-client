@@ -7,7 +7,7 @@ const SearchBarContainer = styled.div`
   border-radius: 20px;
   width: 230px;
   height: 35px;
-  margin: 4rem auto 0 auto;
+  margin: 4rem auto 10px auto;
   line-height: 35px;
 `;
 
