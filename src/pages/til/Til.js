@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import SearchBar from "components/shared/SearchBar";
 import styled from "styled-components";
-import tilData from "data/tilData.js";
+import * as tilData from "data/tilData.js";
+import TocPopover from "components/til/TocPopover";
 
 const TilContainer = styled.div`
   display: flex;
@@ -58,9 +59,9 @@ class Til extends Component {
       <TilContainer>
         <SearchBarDiv>
           <SearchBar />
-          <span className="toc-button">TOC</span>
+          <TocPopover />
         </SearchBarDiv>
-        {tilData.map(til => {
+        {tilData.tilData.map(til => {
           return (
             <TilContentDiv>
               <TilContentLeft>
