@@ -13,10 +13,6 @@ const SearchBarDiv = styled.div`
   width: 100%;
   height: 10rem;
   text-align: center;
-
-  .toc-button {
-    font-size: 0.8rem;
-  }
 `;
 
 const TilContentDiv = styled.div`
@@ -25,7 +21,6 @@ const TilContentDiv = styled.div`
 `;
 
 const TilContentLeft = styled.div`
-  border: 1px solid white;
   flex: 2;
   position: relative;
 
@@ -59,7 +54,7 @@ class Til extends Component {
       <TilContainer>
         <SearchBarDiv>
           <SearchBar />
-          <TocPopover />
+          <TocPopover content={tilData.tilToc} />
         </SearchBarDiv>
         {tilData.tilData.map(til => {
           return (
