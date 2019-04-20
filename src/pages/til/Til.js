@@ -18,6 +18,11 @@ const SearchBarDiv = styled.div`
   }
 `;
 
+const TilContentDiv = styled.div`
+  display: flex;
+  margin-bottom: 3rem;
+`;
+
 const TilContentLeft = styled.div`
   border: 1px solid white;
   flex: 2;
@@ -40,7 +45,7 @@ const TilContentLeft = styled.div`
 `;
 
 const TilContentCenter = styled.div`
-  flex: 4;
+  flex: 3.5;
 `;
 
 const TilContentRight = styled.div`
@@ -55,14 +60,20 @@ class Til extends Component {
           <SearchBar />
           <span className="toc-button">TOC</span>
         </SearchBarDiv>
-        <TilContentLeft>
-          <div className="left-title">
-            <div className="week">{tilData[0].week}주</div>
-            <span className="period">{tilData[0].period}</span>
-          </div>
-        </TilContentLeft>
-        <TilContentCenter>{tilData[0].content}</TilContentCenter>
-        <TilContentRight>{""}</TilContentRight>
+        {tilData.map(til => {
+          return (
+            <TilContentDiv>
+              <TilContentLeft>
+                <div className="left-title">
+                  <div className="week">{til.week}주</div>
+                  <span className="period">{til.period}</span>
+                </div>
+              </TilContentLeft>
+              <TilContentCenter>{til.content}</TilContentCenter>
+              <TilContentRight>{""}</TilContentRight>
+            </TilContentDiv>
+          );
+        })}
       </TilContainer>
     );
   }
