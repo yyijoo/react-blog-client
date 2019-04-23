@@ -1,15 +1,89 @@
 export const tilData = [
   {
-    week: 15,
-    period: "190408-190414",
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+    week: 17,
+    period: "190422-190428",
+    content: `
+  - MongoDB 기본 개념
+      - 참고 : <https://velopert.com/436>
+    - Database
+      - collection : RDMS의 table과 비슷한 개념.document가 여기 속한다.
+      - document: key - value 쌍 데이터가 묶여져있는 하나의 object
+      - commands
+        - show dbs : 현재의 dbs 보기
+        - use 데이터베이스명 : Database 만들기
+        - show collections : 현재 만들어져있는 collections 보기
+  - 서버
+    - body - parser 데이터처리 미들웨어.client의 POST 요청에서 body로부터 파라미터를 쉽게 추출함.
+    - mongoose
+    - model의 instance는 document다.
+    `
   },
   {
-    week: 14,
-    period: "190401-190407",
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+    week: 16,
+    period: "190415-190421",
+    content: `
+
+- 나는 구조적인 앱을 만들고싶다. 최소한의 컴퍼넌트만 사용하고싶다.
+
+- 폴더 구조(folder structure)
+
+  - <https://blog.bitsrc.io/structuring-a-react-project-a-definitive-guide-ac9a754df5eb>
+
+- creact react app from scratch 
+
+  - mkdir -p src/components에서 -p 옵션은 폴더를 만들 때, 만드려는 폴더의 존재하지 않는 상위폴더까지 만들어주는 것.
+  - npm init할 때 -y 옵션 주면 설명 추가 skip 가능
+
+- webpack에 대한 이해 (181219참조)
+
+  - 자바스크립트 파일을 여러 개로 만들어저 관리하는데, 브라우져에서 여러 파일을 로딩하면 1) 네트웍 비용을 치뤄야 한다. 2) 변수 충돌 위험성이 있다. 그래서 하나의 자바스크립트 파일로 바꿔준다.
+  - Loader : 웹팩은 자바스크립트 파일만 읽을 수 있다. 로더는 비자바스크립트 파일을 웹팩이 이해하게 변경시킨다.
+
+- CRA
+  - 도구가 너무 넘쳐나니 페북에서 만듦. React, ReactDOM, react-scripts에 대한 의존관계를 설정해준다.
+    - react-scripts는 바벨, eslint, 웹팩 등을 설치해 개발자가 설정할 필요 없게 해줌.
+
+
+- "npm install —save 패키지이름" vs  "npm install —save-dev"
+  - —save-dev 옵션을 넣어주면, package.json의 depencencies objecr가 아닌 devDependencies object에 해당 패키지가 설치된다. npm install —dev 옵션을 넣어줘야 설치된다. 
+- webpack-dev-server
+  - 로컬에서 사용할 개발용 서버를 제공한다. 이 기능을 통해 소스 파일을 감시하고 번들을 다시 컴파일한다. 
+  - 설정하고싶다면? webpack.config.js에 devServer를 키로 설정하면 된다.
+- webpack loader
+  - 모든 종류의 파일은 별도의 loader가 필요하구나. 이미지가 임포트 안되어서 file-loader깔면서 새롭게 인식함. 생각해보면 당연한데 CRA를 쓸 때는 몰랐다. 
+- CSS
+  - Make div in img vertical align center ; <https://blog.asamaru.net/2017/04/04/css-image-vertical-center/>
+  - (의문) 왜 border를 주냐 안 주냐에 따라 position에 영향을 주는지??
+  - flex
+    - flex-container의 속성들
+      - flex-direction
+      - flex-wrap
+      - Justify-content
+      - align-items
+      - align-content
+    - flex-item의 속성들
+      - flex
+      - flex-grow
+        - 얼만큼까지 item이 grow할 수 있느냐, 즉 확장될 수 있느냐다. 이 숫자에 따라서 아이템간 비율도 정할 수 있다. container 안의 available space 중 item이 얼만큼을 차지할 거냐.
+        - 만약 모든 아이템에 1이 설정되어있으면 동등한 넓이를 가짐.
+        - default는 0 
+      - flex-shrink
+      - flex-basis
+- npm
+  - npm list는 깔린 node package들을 볼 수 있음.
+  - 특정 package의 버전 보려면 npm view react version
+- React
+  - 왜 div보다 Fragment로 감싸는 게 좋을까?
+    - 참고 : <https://stackoverflow.com/questions/47761894/why-are-fragments-in-react-16-better-than-container-divs>
+    -  DOM node를 만들 필요 없어서 메모리를 좀 덜 씀. 사실 큰 규모에서나 필요하긴 하지만… / flexbox나 grid에서 부모 자식 관계에 영향을 미치지 않음. / DOM insperctor가 덜 버벅거림.
+- Xcode
+
+  - 애플의 macOS, iOS, watchOS 및 tvOS 개발 전용 IDE
+- NoSql을 써보자!
+  - homebrew로 mongoDB 설치 : <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/>
+
+
+    `
   }
 ];
 
