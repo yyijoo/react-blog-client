@@ -3,6 +3,7 @@ import SearchBar from "components/shared/SearchBar";
 import styled from "styled-components";
 import * as tilData from "data/tilData.js";
 import TocPopover from "components/til/TocPopover";
+import MarkDown from "markdown-to-jsx";
 
 const TilContainer = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const SearchBarDiv = styled.div`
 const TilContentDiv = styled.div`
   display: flex;
   margin-bottom: 3rem;
+  width: 100%;
 `;
 
 const TilContentLeft = styled.div`
@@ -65,7 +67,9 @@ class Til extends Component {
                   <span className="period">{til.period}</span>
                 </div>
               </TilContentLeft>
-              <TilContentCenter>{til.content}</TilContentCenter>
+              <TilContentCenter>
+                <MarkDown>{til.content}</MarkDown>
+              </TilContentCenter>
               <TilContentRight>{""}</TilContentRight>
             </TilContentDiv>
           );
