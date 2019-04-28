@@ -4,6 +4,7 @@ import Error from "components/shared/Error";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import Til from "pages/til/Til";
 import Resume from "pages/resume/Resume";
+import Portfolio from "pages/portfolio/Portfolio";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/til" component={Til} />
             <Route exact path="/resume" component={Resume} />
+            <Route exact path="/portfolio" component={Portfolio} />
             <Route component={Error} />
           </Switch>
         </HashRouter>
