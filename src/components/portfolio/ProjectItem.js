@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import styled from "styled-components";
 
 const ItemContainer = styled.div`
@@ -9,9 +9,12 @@ const ItemContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  justify-self: stretch;
+  margin-bottom: 40px;
+  border: ${props => (props.imgURL ? "" : "1px solid #d6d6d6")};
 
   .translucent-img {
-    background: ${props => (props.imgURL ? `url(${props.imgURL})` : "")};
+    background: ${props => (props.imgURL ? `url(${props.imgURL})` : "white")};
     background-size: cover;
     opacity: 0.5;
     top: 0;
@@ -44,10 +47,48 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ProjectItem = ({ title, subtitle, imgURL }) => {
+const handlePageChange = project => {
+  console.log("hrere", project);
+  window.location.hash = `#/portfolio/${project}`;
+};
+
+// class ProjectItem extends Component {
+//   state = {
+//     title: this.props.title,
+//     subtitle: this.props.subtitle,
+//     imgUrl: this.props.imgUrl,
+//     redirectUrl: this.props.redirectUrl
+//   };
+
+//   handlePageChange() {
+//     console.log(this.state.redirectUrl, "hrere");
+//     window.location.hash = `#/portfolio/${this.state.redirectUrl}`;
+//   }
+
+//   render() {
+//     return (
+//       <Fragment>
+//         <ItemContainer
+//           imgURL={this.state.imgUrl}
+//           onClick={() => this.handlePageChange()}
+//         >
+//           <div className="translucent-img" />
+//           <div className="color" />
+//           <div className="main-title">{this.state.title}</div>
+//           <div className="sub-title">{this.state.subtitle}</div>
+//         </ItemContainer>
+//       </Fragment>
+//     );
+//   }
+// }
+
+const ProjectItem = ({ title, subtitle, imgUrl, redirectUrl }) => {
   return (
     <Fragment>
-      <ItemContainer imgURL={imgURL}>
+      <ItemContainer
+        imgURL={imgUrl}
+        onClick={() => handlePageChange(redirectUrl)}
+      >
         <div className="translucent-img" />
         <div className="color" />
         <div className="main-title">{title}</div>
