@@ -21,7 +21,7 @@ const Container = styled.div`
   }
 `;
 
-const ProjectsWrapper = ({ title, data, component }) => {
+const ProjectsWrapper = ({ title, data, component, noBackground }) => {
   return (
     <Container>
       <div className="title">{title}</div>
@@ -29,7 +29,13 @@ const ProjectsWrapper = ({ title, data, component }) => {
         {data.map(item => {
           return (
             <span>
-              {component(item.title, item.term, item.imgUrl, item.redirectUrl)}
+              {component(
+                item.title,
+                item.term,
+                item.imgUrl,
+                item.redirectUrl,
+                noBackground
+              )}
             </span>
           );
         })}

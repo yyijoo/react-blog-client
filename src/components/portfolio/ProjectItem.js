@@ -45,6 +45,11 @@ const ItemContainer = styled.div`
     right: 0;
     position: absolute;
   }
+
+  img {
+    width: 100px;
+    height: auto;
+  }
 `;
 
 const handlePageChange = project => {
@@ -82,16 +87,26 @@ const handlePageChange = project => {
 //   }
 // }
 
-const ProjectItem = ({ title, subtitle, imgUrl, redirectUrl }) => {
+const ProjectItem = ({
+  title,
+  subtitle,
+  imgUrl,
+  redirectUrl,
+  noBackground
+}) => {
   return (
     <Fragment>
       <ItemContainer
-        imgURL={imgUrl}
+        imgURL={noBackground ? "" : imgUrl}
         onClick={() => handlePageChange(redirectUrl)}
       >
         <div className="translucent-img" />
         <div className="color" />
-        <div className="main-title">{title}</div>
+        {noBackground ? (
+          <img src={title} />
+        ) : (
+          <div className="main-title">{title}</div>
+        )}
         <div className="sub-title">{subtitle}</div>
       </ItemContainer>
     </Fragment>

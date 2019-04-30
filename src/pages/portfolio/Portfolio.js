@@ -7,12 +7,19 @@ import {
 } from "data/portfolioData.js";
 import NarrowedContainer from "components/shared/OuterContainer";
 
-const returnProjectItem = (title, subtitle, imgUrl, redirectUrl) => (
+const returnProjectItem = (
+  title,
+  subtitle,
+  imgUrl,
+  redirectUrl,
+  noBackground
+) => (
   <ProjectItem
     title={title}
     subtitle={subtitle}
     imgUrl={imgUrl}
     redirectUrl={redirectUrl}
+    noBackground={noBackground}
   />
 );
 
@@ -29,6 +36,7 @@ class Portfolio extends Component {
           title="As Business Developer"
           data={projectAsBusinessDeveloper}
           component={returnProjectItem}
+          noBackground={true}
         />
       </NarrowedContainer>
     );

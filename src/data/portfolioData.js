@@ -35,13 +35,13 @@ export const projectAsEngineer = [
 
 export const projectAsBusinessDeveloper = [
   {
-    title: "Codestates website",
+    title: kakaoMobilityCi,
     term: "2019.02 - 2019.03",
     imgUrl: codestatesWebsite,
     redirectUrl: "kakao"
   },
   {
-    title: "Codestates website",
+    title: psqCi,
     term: "2019.02 - 2019.03",
     imgUrl: codestatesWebsite,
     redirectUrl: "psq"
