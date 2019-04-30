@@ -7,6 +7,9 @@ const HeaderWrapper = styled.div`
   height: 62px;
   background-color: #303030;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
 `;
 
 const HeaderLink = styled(Link)`
@@ -22,8 +25,8 @@ const Header = () => {
       <HeaderLink to="/about">ABOUT</HeaderLink>
       <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
       <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}
-      <HeaderLink to="/til">TIL</HeaderLink>{" "}
-      <HeaderLink to="/blog">BLOG</HeaderLink>{" "}
+      <HeaderLink to="/til">TIL</HeaderLink>
+      {/*<HeaderLink to="/blog">BLOG</HeaderLink>*/}
     </HeaderWrapper>
   );
 };
