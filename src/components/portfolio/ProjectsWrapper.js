@@ -2,31 +2,36 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  border: 1px solid black;
+  margin-bottom: 7rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    margin: 0 0 2rem 0;
+    margin: 0 0 3rem 0;
+    font-weight: bold;
   }
 
   .content {
     display: flex;
     flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: space-between;
   }
 `;
 
-const ProjectsWrapper = ({ data, component }) => {
-  console.log("data", data);
-  console.log("component", component);
+const ProjectsWrapper = ({ title, data, component }) => {
   return (
     <Container>
-      <div className="title">test</div>
+      <div className="title">{title}</div>
       <div className="content">
         {data.map(item => {
-          return <span>{component(item.title, item.term, item.imgURL)}</span>;
+          return (
+            <span>
+              {component(item.title, item.term, item.imgUrl, item.redirectUrl)}
+            </span>
+          );
         })}
       </div>
     </Container>
