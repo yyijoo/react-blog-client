@@ -1,7 +1,7 @@
 import axios from "axios";
 const local = "http://localhost:8080/api";
 
-export const fetchAllTil = dispatch => axios.get(`${local}/til`);
+export const fetchAllTil = () => axios.get(`${local}/til`);
 
 export const searchTil = values =>
   axios.get(`${local}/til/search`, { params: values });
