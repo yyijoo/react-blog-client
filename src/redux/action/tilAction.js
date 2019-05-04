@@ -1,18 +1,34 @@
 import * as api from "components/shared/api.js";
+import * as c from "redux/constants.js";
 
-const successFetch = data => ({
-  type: "FETCH_TILS_SUCCESS",
-  payload: data
-});
+const beginLoading = () => {
+  return {
+    type: c.FETCH_TIL
+  };
+};
 
-// export const fetchAll = () => {
+const succeedInFetching = payload => {
+  return {
+    type: c.FETCH_TIL_SUCCESS,
+    payload: payload
+  };
+};
 
-//   return dispatch
-//   const response = await api.fetchAllTil();
-//   try {
-//     console.log("response in action", response.data);
-//     // dispatch(successFetch(response.data));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+const failToFetch = () => {
+  return {
+    type: c.FETCH_TIL_FAIL
+  };
+};
+
+export const fetchTil = () => async dispatch => {
+  dispatch(beginLoading());
+  const api = await api.fetchAllTil();
+
+  try {
+    console.log("api", api);
+    dispatch(succeedInFetching(api.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(failToFetch());
+  }
+};
