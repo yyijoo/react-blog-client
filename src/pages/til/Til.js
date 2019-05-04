@@ -4,6 +4,8 @@ import styled from "styled-components";
 import * as tilData from "data/tilData.js";
 import TocPopover from "components/til/TocPopover";
 import MarkDown from "markdown-to-jsx";
+import { fetchTil } from "redux/action/tilAction.js";
+import { connect } from "react-redux";
 
 const TilContainer = styled.div`
   display: flex;
@@ -51,7 +53,12 @@ const TilContentRight = styled.div`
 `;
 
 class Til extends Component {
+  componentDidMount() {
+    console.log("did mount in TIL");
+    this.props.fetchTil();
+  }
   render() {
+    console.log("til.props", this.props);
     return (
       <TilContainer>
         <SearchBarDiv>
@@ -79,4 +86,7 @@ class Til extends Component {
   }
 }
 
-export default Til;
+export default connect(
+  null,
+  { fetchTil }
+)(Til);
