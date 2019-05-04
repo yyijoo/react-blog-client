@@ -14,14 +14,14 @@ const tilReducer = (state = initialState, action) => {
         loading: true
       };
 
-    case c.FETCH_SUCCESS:
+    case c.FETCH_TIL_SUCCESS:
       return {
         ...state,
         loading: false,
         tils: action.payload
       };
 
-    case c.FETCH_FAIL:
+    case c.FETCH_TIL_FAIL:
       return {
         ...state,
         loading: false
