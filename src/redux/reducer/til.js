@@ -1,25 +1,33 @@
+import * as c from "redux/constants.js";
+
 const initialState = {
+  loading: false,
   tils: "",
   searchResult: ""
 };
 
 const tilReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_TILS_SUCCESS":
-      console.log("came here");
+    case c.FETCH_TIL:
       return {
         ...state,
+        loading: true
+      };
+
+    case c.FETCH_SUCCESS:
+      return {
+        ...state,
+        loading: false,
         tils: action.payload
       };
 
-    case "FETCH_SEARCHRESULT_SUCCESS":
+    case c.FETCH_FAIL:
       return {
         ...state,
-        searchResult: action.payload
+        loading: false
       };
 
     default:
-      console.log("default");
       return state;
   }
 };
