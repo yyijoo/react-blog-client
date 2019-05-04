@@ -29,6 +29,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "axios": "^0.18.0",
     "markdown-to-jsx": "^6.9.4",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
