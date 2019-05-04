@@ -22,11 +22,12 @@ const failToFetch = () => {
 
 export const fetchTil = () => async dispatch => {
   dispatch(beginLoading());
-  const api = await api.fetchAllTil();
+  console.log("fetching");
+  const response = await api.fetchAllTil();
 
   try {
-    console.log("api", api);
-    dispatch(succeedInFetching(api.data));
+    console.log("api", response);
+    dispatch(succeedInFetching(response.data));
   } catch (error) {
     console.log(error);
     dispatch(failToFetch());
