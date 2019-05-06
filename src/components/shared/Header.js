@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import circle from "data/image/circle.png";
+import { faintBlack } from "components/shared/colors.js";
 
 const HeaderWrapper = styled.div`
   display: flex;
   height: 62px;
-  background-color: #303030;
+  background-color: ${faintBlack};
   align-items: center;
   position: fixed;
   top: 0;
@@ -19,9 +21,16 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
 `;
 
+const Logo = styled.img`
+  height: 40px;
+  width: auto;
+  margin-left: 1rem;
+`;
+
 const Header = () => {
   return (
     <HeaderWrapper>
+      <Logo src={circle} />
       <HeaderLink to="/about">ABOUT</HeaderLink>
       <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
       <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}
