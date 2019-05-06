@@ -13,13 +13,19 @@ class App extends Component {
       <div>
         <HashRouter>
           <Header />
-          <Switch>
-            <Route exact path="/til" component={Til} />
-            <Route exact path="/resume" component={Resume} />
-            <Route exact path="/portfolio" component={Portfolio} />
-            <Route exact path="/portfolio/:project" component={ProjectDetail} />
-            <Route component={Error} />
-          </Switch>
+          <div style={{ marginTop: "62px" }}>
+            <Switch>
+              <Route exact path="/til" component={Til} />
+              <Route exact path="/resume" component={Resume} />
+              <Route exact path="/portfolio/" component={Portfolio} />
+              <Route
+                exact
+                path="/portfolio/:project"
+                component={ProjectDetail}
+              />
+              <Route component={Error} />
+            </Switch>
+          </div>
         </HashRouter>
       </div>
     );
