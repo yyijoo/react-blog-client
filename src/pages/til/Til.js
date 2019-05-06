@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import SearchBar from "components/shared/SearchBar";
 import styled from "styled-components";
 import * as tilData from "data/tilData.js";
@@ -58,35 +58,47 @@ class Til extends Component {
     this.props.fetchTil();
   }
   render() {
-    console.log("til.props", this.props);
+    const { tilList } = this.props;
     return (
       <TilContainer>
-        <SearchBarDiv>
-          <SearchBar />
-          <TocPopover content={tilData.tilToc} />
-        </SearchBarDiv>
-        {tilData.tilData.map(til => {
-          return (
-            <TilContentDiv>
-              <TilContentLeft>
-                <div className="left-title">
-                  <div className="week">{til.week}주</div>
-                  <span className="period">{til.period}</span>
-                </div>
-              </TilContentLeft>
-              <TilContentCenter>
-                <MarkDown>{til.content}</MarkDown>
-              </TilContentCenter>
-              <TilContentRight>{""}</TilContentRight>
-            </TilContentDiv>
-          );
-        })}
+        {!tilList ? (
+          "loading..."
+        ) : (
+          <Fragment>
+            <SearchBarDiv>
+              <SearchBar />
+              <TocPopover content={tilData.tilToc} />
+            </SearchBarDiv>
+            {tilList.map(til => {
+              return (
+                <TilContentDiv>
+                  <TilContentLeft>
+                    <div className="left-title">
+                      <div className="week">{til.week}주</div>
+                      <span className="period">{til.date}</span>
+                    </div>
+                  </TilContentLeft>
+                  <TilContentCenter>
+                    <MarkDown>{til.content}</MarkDown>
+                  </TilContentCenter>
+                  <TilContentRight>{""}</TilContentRight>
+                </TilContentDiv>
+              );
+            })}
+          </Fragment>
+        )}
       </TilContainer>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    tilList: state.tilReducer.tils
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { fetchTil }
 )(Til);
