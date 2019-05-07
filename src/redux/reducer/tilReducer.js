@@ -3,6 +3,7 @@ import * as c from "redux/constants.js";
 const initialState = {
   loading: false,
   tils: "",
+  searchValue: "",
   searchResult: ""
 };
 
@@ -39,10 +40,17 @@ const tilReducer = (state = initialState, action) => {
         searchResult: action.payload
       };
 
+    case c.CHANGE_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.payload
+      };
+
     case c.RETURN_TO_TIL:
       return {
         ...state,
-        searchResult: ""
+        searchResult: "",
+        searchValue: ""
       };
 
     default:

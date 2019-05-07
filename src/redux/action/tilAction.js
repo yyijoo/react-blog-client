@@ -29,9 +29,17 @@ const failToFetch = () => {
   };
 };
 
+const changeSearchVal = searchVal => {
+  return {
+    type: c.CHANGE_SEARCH_VALUE,
+    payload: searchVal
+  };
+};
+
 export const fetchTil = () => async dispatch => {
   dispatch(beginLoading());
   console.log("fetching");
+
   const response = await api.fetchAllTil();
   console.log("response fetch", response);
 
@@ -45,6 +53,7 @@ export const fetchTil = () => async dispatch => {
 
 export const searchTil = searchVal => async dispatch => {
   dispatch(beginLoading());
+  dispatch(changeSearchVal(searchVal));
   console.log("searching");
   const response = await api.searchTil(searchVal, dispatch);
   console.log("why.......", response);

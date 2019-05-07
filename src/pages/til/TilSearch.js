@@ -3,11 +3,30 @@ import { connect } from "react-redux";
 import SearchBar from "components/shared/SearchBar";
 import styled from "styled-components";
 import { showAllTil } from "redux/action/tilAction.js";
+import ShowAllButton from "components/til/ShowAllButton";
+import TocPopover from "components/til/TocPopover";
+import * as tilData from "data/tilData.js";
 
 const SearchBarWrapper = styled.div`
   width: 100%;
   height: 100px;
   position: relative;
+  display: flex;
+`;
+
+const SearchResultDiv = styled.div`
+  height: 50px;
+  width: 400px;
+  .show-all-btn {
+    position: relative;
+  }
+
+  .search-val {
+    position: absolute;
+    font-size: 24px;
+    left: 100px;
+    top: 5px;
+  }
 `;
 
 const SearchBarDiv = styled.div`
@@ -17,23 +36,18 @@ const SearchBarDiv = styled.div`
   margin-right: 3rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-`;
-
-const SearchResultDiv = styled.div`
-  position: absolute;
-  margin-bottom: 3rem;
 `;
 
 class TilSearch extends Component {
   render() {
-    const { showAllTil } = this.props;
+    const { showAllTil, searchVal } = this.props;
     return (
       <SearchBarWrapper>
         <SearchResultDiv>
-          <button type="button" onClick={() => showAllTil()}>
-            temp btn
-          </button>
+          <span className="show-all-btn">
+            {searchVal ? <ShowAllButton clickEvent={showAllTil} /> : ""}
+          </span>
+          {searchVal ? <span className="search-val">"{searchVal}"</span> : ""}
         </SearchResultDiv>
         <SearchBarDiv>
           <SearchBar float="right" />
@@ -44,7 +58,11 @@ class TilSearch extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  searchVal: state.tilReducer.searchValue
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { showAllTil }
 )(TilSearch);
