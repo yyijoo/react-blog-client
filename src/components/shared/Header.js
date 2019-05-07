@@ -19,12 +19,14 @@ const HeaderLink = styled(Link)`
   color: white;
   max-width: 50%;
   text-decoration: none;
+  font-size: 14px;
 `;
 
 const Logo = styled.img`
   height: 40px;
   width: auto;
   margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
 const Header = () => {
