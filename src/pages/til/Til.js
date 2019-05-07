@@ -4,7 +4,7 @@ import styled from "styled-components";
 import * as tilData from "data/tilData.js";
 import TocPopover from "components/til/TocPopover";
 import MarkDown from "markdown-to-jsx";
-import { fetchTil } from "redux/action/tilAction.js";
+import { fetchTil, showAllTil } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
 
 const TilContainer = styled.div`
@@ -58,7 +58,15 @@ class Til extends Component {
     this.props.fetchTil();
   }
   render() {
-    const { tilList } = this.props;
+    const { loading, tilList, searchResult, showAllTil } = this.props;
+
+    let content = tilList;
+
+    if (searchResult !== "") {
+      content = searchResult;
+    }
+    console.log("til rerendered");
+
     return (
       <TilContainer>
         {!tilList ? (
@@ -68,8 +76,11 @@ class Til extends Component {
             <SearchBarDiv>
               <SearchBar />
               <TocPopover content={tilData.tilToc} />
+              <button type="button" onClick={() => showAllTil()}>
+                temp btn
+              </button>
             </SearchBarDiv>
-            {tilList.map(til => {
+            {content.map(til => {
               return (
                 <TilContentDiv>
                   <TilContentLeft>
@@ -94,11 +105,13 @@ class Til extends Component {
 
 const mapStateToProps = state => {
   return {
-    tilList: state.tilReducer.tils
+    loading: state.tilReducer.loading,
+    tilList: state.tilReducer.tils,
+    searchResult: state.tilReducer.searchResult
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchTil }
+  { fetchTil, showAllTil }
 )(Til);

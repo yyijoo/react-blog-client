@@ -1,3 +1,8 @@
+// TIL
 export const FETCH_TIL = "FETCH_TIL";
 export const FETCH_TIL_SUCCESS = "FETCH_TIL_SUCCESS";
 export const FETCH_TIL_FAIL = "FETCH_TIL_FAIL";
+export const RETURN_TO_TIL = "RETURN_TO_TIL";
+
+// SHARED
+export const FETCH_SEARCH_SUCCESS = "FETCH_SEARCH_SUCCESS";

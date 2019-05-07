@@ -2,16 +2,25 @@ import * as api from "components/shared/api.js";
 import * as c from "redux/constants.js";
 
 const beginLoading = () => {
+  console.log("loading ");
   return {
     type: c.FETCH_TIL
   };
 };
 
-const succeedInFetching = payload => {
-  return {
-    type: c.FETCH_TIL_SUCCESS,
-    payload: payload
-  };
+const succeedInFetching = (payload, isSearch) => {
+  console.log("22222");
+  if (isSearch) {
+    return {
+      type: c.FETCH_SEARCH_SUCCESS,
+      payload: payload
+    };
+  } else {
+    return {
+      type: c.FETCH_TIL_SUCCESS,
+      payload: payload
+    };
+  }
 };
 
 const failToFetch = () => {
@@ -24,12 +33,33 @@ export const fetchTil = () => async dispatch => {
   dispatch(beginLoading());
   console.log("fetching");
   const response = await api.fetchAllTil();
+  console.log("response fetch", response);
 
   try {
-    console.log("api", response);
     dispatch(succeedInFetching(response.data));
   } catch (error) {
     console.log(error);
     dispatch(failToFetch());
   }
+};
+
+export const searchTil = searchVal => async dispatch => {
+  dispatch(beginLoading());
+  console.log("searching");
+  const response = await api.searchTil(searchVal, dispatch);
+  console.log("why.......", response);
+
+  // try {
+  //   console.log("1111", response);
+  //   dispatch(succeedInSearching(response.data, true));
+  // } catch (error) {
+  //   console.log(error);
+  //   dispatch(failToFetch());
+  // }
+};
+
+export const showAllTil = () => {
+  return {
+    type: c.RETURN_TO_TIL
+  };
 };

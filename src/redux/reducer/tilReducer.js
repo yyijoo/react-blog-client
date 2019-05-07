@@ -7,14 +7,17 @@ const initialState = {
 };
 
 const tilReducer = (state = initialState, action) => {
+  console.log("til reducer working");
   switch (action.type) {
     case c.FETCH_TIL:
+      console.log("FETCH_TIL reducer");
       return {
         ...state,
         loading: true
       };
 
     case c.FETCH_TIL_SUCCESS:
+      console.log("FETCH_TIL_SUCCESS reducer");
       return {
         ...state,
         loading: false,
@@ -22,9 +25,24 @@ const tilReducer = (state = initialState, action) => {
       };
 
     case c.FETCH_TIL_FAIL:
+      console.log("FETCH_TIL_FAIL reducer");
       return {
         ...state,
         loading: false
+      };
+
+    case c.FETCH_SEARCH_SUCCESS:
+      console.log("FETCH_SEARCH_SUCCESS reducer");
+      return {
+        ...state,
+        loading: false,
+        searchResult: action.payload
+      };
+
+    case c.RETURN_TO_TIL:
+      return {
+        ...state,
+        searchResult: ""
       };
 
     default:
