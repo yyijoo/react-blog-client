@@ -1,13 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import resumeData from "data/resumeData.js";
-import { faintBlack } from "components/shared/colors.js";
-
-const Wrapper = styled.div`
-  margin-left: 6.1rem;
-  margin-top: 8rem;
-  color: ${faintBlack};
-`;
+import { Wrapper } from "components/shared/OuterContainer.js";
 
 const Row = styled.div`
   display: flex;
