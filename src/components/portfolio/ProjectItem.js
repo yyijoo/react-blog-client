@@ -12,6 +12,7 @@ const ItemContainer = styled.div`
   justify-self: stretch;
   margin-bottom: 40px;
   border: ${props => (props.imgURL ? "" : "1px solid #d6d6d6")};
+  z-index: -1;
 
   .translucent-img {
     background: ${props => (props.imgURL ? `url(${props.imgURL})` : "white")};
