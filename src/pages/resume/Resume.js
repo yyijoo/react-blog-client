@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import resumeData from "data/resumeData.js";
+import { faintBlack } from "components/shared/colors.js";
 
 const Wrapper = styled.div`
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 6.1rem;
   margin-top: 8rem;
+  color: ${faintBlack};
 `;
 
 const Row = styled.div`
@@ -25,7 +25,7 @@ const Row = styled.div`
   }
 
   .right-items {
-    flex: 2
+    flex: 4
     .item-name {
       font-size: 1.1rem;
       font-weight: bold;
