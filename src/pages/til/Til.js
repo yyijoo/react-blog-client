@@ -6,37 +6,47 @@ import TocPopover from "components/til/TocPopover";
 import MarkDown from "markdown-to-jsx";
 import { fetchTil, showAllTil } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
+import { Wrapper } from "components/shared/OuterContainer.js";
 
 const TilContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const SearchBarDiv = styled.div`
+const SearchBarWrapper = styled.div`
   width: 100%;
-  height: 10rem;
-  text-align: center;
+  height: 100px;
+  position: relative;
+`;
+
+const SearchBarDiv = styled.div`
+  position: absolute;
+  right: 0;
+  margin-bottom: 3rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const TilContentDiv = styled.div`
   display: flex;
   margin-bottom: 3rem;
-  width: 100%;
+  max-width: 900px;
 `;
 
 const TilContentLeft = styled.div`
-  flex: 2;
+  min-width: 100px;
   position: relative;
+  padding-top: 1rem;
 
   .left-title {
     position: absolute;
-    right: 8rem;
     text-align: center;
   }
 
   .week {
     font-size: 1.5rem;
-    margin-bottom: 8px;
   }
 
   .period {
@@ -44,12 +54,8 @@ const TilContentLeft = styled.div`
   }
 `;
 
-const TilContentCenter = styled.div`
-  flex: 3.5;
-`;
-
 const TilContentRight = styled.div`
-  flex: 2;
+  margin-left: 2rem;
 `;
 
 class Til extends Component {
@@ -68,37 +74,41 @@ class Til extends Component {
     console.log("til rerendered");
 
     return (
-      <TilContainer>
-        {!tilList ? (
-          "loading..."
-        ) : (
-          <Fragment>
-            <SearchBarDiv>
-              <SearchBar />
-              <TocPopover content={tilData.tilToc} />
-              <button type="button" onClick={() => showAllTil()}>
-                temp btn
-              </button>
-            </SearchBarDiv>
-            {content.map(til => {
-              return (
-                <TilContentDiv>
-                  <TilContentLeft>
-                    <div className="left-title">
-                      <div className="week">{til.week}주</div>
-                      <span className="period">{til.date}</span>
-                    </div>
-                  </TilContentLeft>
-                  <TilContentCenter>
-                    <MarkDown>{til.content}</MarkDown>
-                  </TilContentCenter>
-                  <TilContentRight>{""}</TilContentRight>
-                </TilContentDiv>
-              );
-            })}
-          </Fragment>
-        )}
-      </TilContainer>
+      <Wrapper>
+        <TilContainer>
+          {!tilList ? (
+            "loading..."
+          ) : (
+            <Fragment>
+              <SearchBarWrapper>
+                <button type="button" onClick={() => showAllTil()}>
+                  temp btn
+                </button>
+                <SearchBarDiv>
+                  <SearchBar float="right" />
+                  <TocPopover content={tilData.tilToc} />
+                </SearchBarDiv>
+              </SearchBarWrapper>
+              {content.map(til => {
+                return (
+                  <TilContentDiv>
+                    <TilContentLeft>
+                      <div className="left-title">
+                        <div className="week">{til.week}주</div>
+                        <span className="period">{til.date}</span>
+                      </div>
+                    </TilContentLeft>
+                    <TilContentRight>
+                      <MarkDown>{til.content}</MarkDown>
+                    </TilContentRight>
+                    {/* <TilContentRight>{""}</TilContentRight> */}
+                  </TilContentDiv>
+                );
+              })}
+            </Fragment>
+          )}
+        </TilContainer>
+      </Wrapper>
     );
   }
 }

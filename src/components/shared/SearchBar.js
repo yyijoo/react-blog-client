@@ -9,8 +9,8 @@ const SearchBarContainer = styled.div`
   border-radius: 20px;
   width: 230px;
   height: 35px;
-  margin: 4rem auto 10px auto;
   line-height: 35px;
+  float: ${props => (props.float ? props.float : "")};
 `;
 
 const SearchInput = styled.input`
@@ -52,10 +52,10 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { searchTil } = this.props;
+    const { searchTil, float } = this.props;
     const { searchVal } = this.state;
     return (
-      <SearchBarContainer>
+      <SearchBarContainer float={float}>
         <SearchInput
           onChange={e => this.setState({ searchVal: e.target.value })}
         />

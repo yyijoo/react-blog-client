@@ -10,6 +10,10 @@ const PopoverWrapper = styled.div`
   position: relative;
 `;
 
+const OuterWrapper = styled.div`
+  float: right;
+`;
+
 const content = content => (
   <PopoverWrapper>
     {content.map(con => (
@@ -30,9 +34,8 @@ class TocPopover extends Component {
   };
 
   render() {
-    console.log(this.state.visible);
     return (
-      <Fragment>
+      <OuterWrapper>
         <div style={{ fontSize: "0.8rem" }} onClick={this.onClickVisible}>
           TOC
         </div>
@@ -41,7 +44,7 @@ class TocPopover extends Component {
         ) : (
           ""
         )}
-      </Fragment>
+      </OuterWrapper>
     );
   }
 }
