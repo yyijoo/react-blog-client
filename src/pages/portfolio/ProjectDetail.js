@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NarrowedContainer from "components/shared/OuterContainer";
+import { NarrowedContainer } from "components/shared/OuterContainer";
 import { projects } from "data/portfolioData";
 import styled from "styled-components";
 

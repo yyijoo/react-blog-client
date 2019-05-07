@@ -5,7 +5,7 @@ import {
   projectAsEngineer,
   projectAsBusinessDeveloper
 } from "data/portfolioData.js";
-import NarrowedContainer from "components/shared/OuterContainer";
+import { NarrowedContainer } from "components/shared/OuterContainer";
 
 const returnProjectItem = (
   title,
