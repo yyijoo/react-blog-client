@@ -7,6 +7,7 @@ import MarkDown from "markdown-to-jsx";
 import { fetchTil, showAllTil } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
 import { Wrapper } from "components/shared/OuterContainer.js";
+import TilSearch from "pages/til/TilSearch";
 
 const TilContainer = styled.div`
   display: flex;
@@ -27,6 +28,11 @@ const SearchBarDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const SearchResultDiv = styled.div`
+  position: absolute;
+  margin-bottom: 3rem;
 `;
 
 const TilContentDiv = styled.div`
@@ -76,19 +82,11 @@ class Til extends Component {
     return (
       <Wrapper>
         <TilContainer>
+          <TilSearch />
           {!tilList ? (
             "loading..."
           ) : (
             <Fragment>
-              <SearchBarWrapper>
-                <button type="button" onClick={() => showAllTil()}>
-                  temp btn
-                </button>
-                <SearchBarDiv>
-                  <SearchBar float="right" />
-                  <TocPopover content={tilData.tilToc} />
-                </SearchBarDiv>
-              </SearchBarWrapper>
               {content.map(til => {
                 return (
                   <TilContentDiv>
