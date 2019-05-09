@@ -54,7 +54,6 @@ const ItemContainer = styled.div`
 `;
 
 const handlePageChange = project => {
-  console.log("hrere", project);
   window.location.hash = `#/portfolio/${project}`;
 };
 

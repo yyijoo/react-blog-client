@@ -10,19 +10,21 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(md)$/,
+      //   use: ["html-loader", "markdown-loader"]
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        use: ["babel-loader"]
       },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|md)$/,
         use: {
           loader: "file-loader"
         }

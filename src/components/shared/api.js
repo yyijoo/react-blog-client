@@ -4,17 +4,7 @@ import * as c from "redux/constants.js";
 
 export const fetchAllTil = () => axios.get(`${local}/til`);
 
-// export const searchTil = values => {
-//   console.log("search api called");
-//   axios.get(`${local}/til/search`, { params: values });
-//   // .then(res => {
-//   //   console.log("hi", res);
-//   //   return res;
-//   // });
-// };
-
 export const searchTil = (values, dispatch) => {
-  console.log("search api called");
   axios.get(`${local}/til/search`, { params: values }).then(res => {
     const succeedInSearching = payload => {
       return {
@@ -25,4 +15,22 @@ export const searchTil = (values, dispatch) => {
 
     dispatch(succeedInSearching(res.data));
   });
+};
+
+export const addTil = values => {
+  // JSON.stringify(values);
+  axios.post(`${local}/addtils`, values, {
+    headers: {
+      "content-type": "application/x-www-form-urlencoded"
+    }
+  });
+};
+
+export const fetchLocalTil = async (markdownFiles, dispatch) => {
+  console.log("api", markdownFiles);
+  Promise.all(
+    markdownFiles.map(file => fetch(file.content).then(res => res.text()))
+  )
+    .then(data => console.log("data", data))
+    .catch(err => console.error(err));
 };

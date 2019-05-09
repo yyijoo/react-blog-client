@@ -1,40 +1,18 @@
 import React, { Component, Fragment } from "react";
-import SearchBar from "components/shared/SearchBar";
 import styled from "styled-components";
-import * as tilData from "data/tilData.js";
-import TocPopover from "components/til/TocPopover";
 import MarkDown from "markdown-to-jsx";
-import { fetchTil, showAllTil } from "redux/action/tilAction.js";
+import { fetchTil, fetchTilFromLocalFile } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
 import { Wrapper } from "components/shared/OuterContainer.js";
 import TilSearch from "pages/til/TilSearch";
+import { addTil } from "components/shared/api";
+
+// ::::::::::::::::::: Define style ::::::::::::::::::: //
 
 const TilContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-
-const SearchBarWrapper = styled.div`
-  width: 100%;
-  height: 100px;
-  position: relative;
-`;
-
-const SearchBarDiv = styled.div`
-  position: absolute;
-  right: 0;
-  margin-bottom: 3rem;
-  margin-right: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const SearchResultDiv = styled.div`
-  position: absolute;
-  margin-bottom: 3rem;
-`;
-
 const TilContentDiv = styled.div`
   display: flex;
   margin-bottom: 3rem;
@@ -64,20 +42,22 @@ const TilContentRight = styled.div`
   margin-left: 2rem;
 `;
 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::: //
+
 class Til extends Component {
-  componentDidMount() {
-    console.log("did mount in TIL");
-    this.props.fetchTil();
+  async componentDidMount() {
+    this.props.fetchTilFromLocalFile();
   }
+
   render() {
-    const { loading, tilList, searchResult, showAllTil } = this.props;
+    const { tilList, searchResult } = this.props;
 
     let content = tilList;
 
     if (searchResult !== "") {
       content = searchResult;
     }
-    console.log("til rerendered");
+    console.log("til rerendered", this.state);
 
     return (
       <Wrapper>
@@ -103,9 +83,27 @@ class Til extends Component {
                   </TilContentDiv>
                 );
               })}
+              {/* {!this.state.posts ? (
+                ""
+              ) : (
+                <div>
+                  {this.state.posts.map(post => (
+                    <MarkDown>{post}</MarkDown>
+                  ))}
+                </div>
+              )} */}
             </Fragment>
           )}
         </TilContainer>
+        <button
+          onClick={() => {
+            console.log(one);
+            addTil(one);
+          }}
+        >
+          add til
+        </button>
+        {/* <MarkDown>{this.state.post ? this.state.post : ""}</MarkDown> */}
       </Wrapper>
     );
   }
@@ -121,5 +119,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchTil, showAllTil }
+  { fetchTil, fetchTilFromLocalFile }
 )(Til);

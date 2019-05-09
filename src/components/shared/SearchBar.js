@@ -20,7 +20,6 @@ const SearchInput = styled.input`
 `;
 
 const ButtonWithIcon = ({ searchVal, submitFunc }) => {
-  console.log("now", searchVal, "func", submitFunc);
   const Button = styled.button.attrs({ type: "button" })`
     background: none;
     border: none;

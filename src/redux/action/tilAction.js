@@ -2,14 +2,12 @@ import * as api from "components/shared/api.js";
 import * as c from "redux/constants.js";
 
 const beginLoading = () => {
-  console.log("loading ");
   return {
     type: c.FETCH_TIL
   };
 };
 
 const succeedInFetching = (payload, isSearch) => {
-  console.log("22222");
   if (isSearch) {
     return {
       type: c.FETCH_SEARCH_SUCCESS,
@@ -38,10 +36,8 @@ const changeSearchVal = searchVal => {
 
 export const fetchTil = () => async dispatch => {
   dispatch(beginLoading());
-  console.log("fetching");
 
   const response = await api.fetchAllTil();
-  console.log("response fetch", response);
 
   try {
     dispatch(succeedInFetching(response.data));
@@ -54,9 +50,7 @@ export const fetchTil = () => async dispatch => {
 export const searchTil = searchVal => async dispatch => {
   dispatch(beginLoading());
   dispatch(changeSearchVal(searchVal));
-  console.log("searching");
   const response = await api.searchTil(searchVal, dispatch);
-  console.log("why.......", response);
 
   // try {
   //   console.log("1111", response);
@@ -71,4 +65,23 @@ export const showAllTil = () => {
   return {
     type: c.RETURN_TO_TIL
   };
+};
+
+// ::::::: fetch local md files ::::::: //
+
+export const fetchTilFromLocalFile = dispatch => {
+  const markdownContext = require.context("data/markdown", false, /\.md$/);
+  const markdownFiles = markdownContext.keys().map(filename => {
+    const name = filename.split("-");
+    const post = {
+      week: name[0].slice(2),
+      date: name[1] + "-" + name[2].slice(0, -3),
+      content: markdownContext(filename)
+    };
+    return post;
+  });
+
+
+  console.log("came here");
+  const response = await api.fetchLocalTil(markdownFiles, dispatch);
 };
