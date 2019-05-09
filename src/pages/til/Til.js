@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 import MarkDown from "markdown-to-jsx";
-import { fetchTil, fetchTilFromLocalFile } from "redux/action/tilAction.js";
+// import { fetchTil } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
 import { Wrapper } from "components/shared/OuterContainer.js";
 import TilSearch from "pages/til/TilSearch";
@@ -40,13 +40,42 @@ const TilContentLeft = styled.div`
 
 const TilContentRight = styled.div`
   margin-left: 2rem;
+  width: 800px;
 `;
 
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::: //
 
 class Til extends Component {
+  state = {
+    posts: null
+  };
+
   async componentDidMount() {
-    this.props.fetchTilFromLocalFile();
+    const markdownContext = require.context("data/markdown", false, /\.md$/); // 한 폴더에 있는 모든 파일을 불러왔다.
+    const markdownFiles = markdownContext.keys(); // 폴더 이름을 arr로 뽑았다.
+
+    const posts = await Promise.all(
+      markdownFiles.map(async file => {
+        const filenameArr = file.split("-");
+        const post = {};
+        post.week = filenameArr[0].slice(2);
+        post.date = filenameArr[1] + "-" + filenameArr[2].slice(0, -3);
+
+        const fetchedText = await fetch(markdownContext(file)).then(res =>
+          res.text()
+        );
+
+        post.content = fetchedText;
+
+        return post;
+      })
+    );
+
+    posts.sort((ele, nextEle) => nextEle.week - ele.week);
+
+    console.log("posts", posts);
+
+    this.setState({ posts });
   }
 
   render() {
@@ -63,11 +92,11 @@ class Til extends Component {
       <Wrapper>
         <TilContainer>
           <TilSearch />
-          {!tilList ? (
+          {!this.state.posts ? (
             "loading..."
           ) : (
             <Fragment>
-              {content.map(til => {
+              {this.state.posts.map(til => {
                 return (
                   <TilContentDiv>
                     <TilContentLeft>
@@ -79,31 +108,20 @@ class Til extends Component {
                     <TilContentRight>
                       <MarkDown>{til.content}</MarkDown>
                     </TilContentRight>
-                    {/* <TilContentRight>{""}</TilContentRight> */}
                   </TilContentDiv>
                 );
               })}
-              {/* {!this.state.posts ? (
-                ""
-              ) : (
-                <div>
-                  {this.state.posts.map(post => (
-                    <MarkDown>{post}</MarkDown>
-                  ))}
-                </div>
-              )} */}
             </Fragment>
           )}
         </TilContainer>
-        <button
+        {/* <button
           onClick={() => {
             console.log(one);
             addTil(one);
           }}
         >
           add til
-        </button>
-        {/* <MarkDown>{this.state.post ? this.state.post : ""}</MarkDown> */}
+        </button> */}
       </Wrapper>
     );
   }
@@ -119,5 +137,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchTil, fetchTilFromLocalFile }
+  null
 )(Til);
