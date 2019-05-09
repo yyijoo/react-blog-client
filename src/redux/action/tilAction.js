@@ -69,19 +69,18 @@ export const showAllTil = () => {
 
 // ::::::: fetch local md files ::::::: //
 
-export const fetchTilFromLocalFile = dispatch => {
-  const markdownContext = require.context("data/markdown", false, /\.md$/);
-  const markdownFiles = markdownContext.keys().map(filename => {
-    const name = filename.split("-");
-    const post = {
-      week: name[0].slice(2),
-      date: name[1] + "-" + name[2].slice(0, -3),
-      content: markdownContext(filename)
-    };
-    return post;
-  });
+// export const fetchTilFromLocalFile = dispatch => {
+//   const markdownContext = require.context("data/markdown", false, /\.md$/);
+//   const markdownFiles = markdownContext.keys().map(filename => {
+//     const name = filename.split("-");
+//     const post = {
+//       week: name[0].slice(2),
+//       date: name[1] + "-" + name[2].slice(0, -3),
+//       content: markdownContext(filename)
+//     };
+//     return post;
+//   });
 
-
-  console.log("came here");
-  const response = await api.fetchLocalTil(markdownFiles, dispatch);
-};
+//   console.log("came here");
+//   const response = await api.fetchLocalTil(markdownFiles, dispatch);
+// };
