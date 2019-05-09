@@ -10,7 +10,7 @@ export const NarrowedContainer = styled.div`
 
 export const Wrapper = styled.div`
   margin-left: 7rem;
-  margin-top: 6rem;
+  margin-top: 7rem;
   color: ${faintBlack};
 `;
 

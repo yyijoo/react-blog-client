@@ -5,7 +5,7 @@ import {
   projectAsEngineer,
   projectAsBusinessDeveloper
 } from "data/portfolioData.js";
-import { NarrowedContainer } from "components/shared/OuterContainer";
+import { Wrapper } from "components/shared/OuterContainer";
 
 const returnProjectItem = (
   title,
@@ -26,7 +26,7 @@ const returnProjectItem = (
 class Portfolio extends Component {
   render() {
     return (
-      <NarrowedContainer>
+      <Wrapper>
         <ProjectsWrapper
           title="As Software Enginner"
           data={projectAsEngineer}
@@ -38,7 +38,7 @@ class Portfolio extends Component {
           component={returnProjectItem}
           noBackground={true}
         />
-      </NarrowedContainer>
+      </Wrapper>
     );
   }
 }
