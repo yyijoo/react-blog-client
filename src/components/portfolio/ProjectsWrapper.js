@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import styled from "styled-components";
 import ProjectDetailLeft from "pages/portfolio/projectDetailLeft";
+import { connect } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -19,55 +20,75 @@ const Container = styled.div`
 
   .content-detail {
     min-width: 600px;
-    margin-top: 3rem;
     margin-left: 8rem;
   }
 `;
 
-const ProjectsWrapper = ({ title, data, component, noBackground }) => {
-  return (
-    <Container>
-      <div className="title-content">
-        <div className="title">{title}</div>
-        <div className="content">
-          {data.map(item => {
-            return (
-              <span>
-                {component(
-                  item.title,
-                  item.term,
-                  item.imgUrl,
-                  item.redirectUrl,
-                  noBackground
-                )}
-              </span>
-            );
-          })}
+const ProjectDetailDiv = styled.div`
+  min-width: 600px;
+  margin-left: 8rem;
+
+  display: ${props => (props.isSelected ? "" : "none")};
+`;
+
+class ProjectsWrapper extends Component {
+  render() {
+    const {
+      section,
+      title,
+      data,
+      component,
+      noBackground,
+      selectedProjectSection
+    } = this.props;
+    return (
+      <Container>
+        <div className="title-content">
+          <div className="title">{title}</div>
+          <div className="content">
+            {data.map(item => {
+              return (
+                <span>
+                  {component(
+                    item.title,
+                    item.term,
+                    item.imgUrl,
+                    item.redirectUrl,
+                    noBackground
+                  )}
+                </span>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div className="content-detail">
-        <ProjectDetailLeft />
-      </div>
-    </Container>
-  );
+        <ProjectDetailDiv isSelected={section === selectedProjectSection}>
+          <ProjectDetailLeft />
+        </ProjectDetailDiv>
+      </Container>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  console.log(state);
+
+  let selectedProjectSection;
+
+  if (
+    state.portfolioReducer.selectedProject === "psq" ||
+    state.portfolioReducer.selectedProject === "kakao"
+  ) {
+    selectedProjectSection = "business";
+  } else {
+    selectedProjectSection = "software";
+  }
+  return {
+    ...state,
+    selectedProjectSection: selectedProjectSection
+  };
 };
 
-// margin-bottom: 7rem;
-// max-width: 900px;
-// margin-left: auto;
-// margin-right: auto;
-
-// .title {
-//   font-size: 1.5rem;
-//   text-align: center;
-//   margin: 0 0 3rem 0;
-//   font-weight: bold;
-// }
-
-// .content {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-// }
-
-export default ProjectsWrapper;
+export default connect(
+  mapStateToProps,
+  null
+)(ProjectsWrapper);

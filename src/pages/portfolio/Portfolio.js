@@ -28,11 +28,13 @@ class Portfolio extends Component {
     return (
       <Wrapper>
         <ProjectsWrapper
+          section="software"
           title="As Software Enginner"
           data={projectAsEngineer}
           component={returnProjectItem}
         />
         <ProjectsWrapper
+          section="business"
           title="As Business Developer"
           data={projectAsBusinessDeveloper}
           component={returnProjectItem}

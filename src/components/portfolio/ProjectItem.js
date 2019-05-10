@@ -1,5 +1,7 @@
 import React, { Fragment, Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { selectProject } from "redux/action/portfolioAction";
 
 const ItemContainer = styled.div`
   width: 200px;
@@ -16,7 +18,7 @@ const ItemContainer = styled.div`
 
 const handlePageChange = project => {
   console.log("why");
-  window.location.hash = `#/portfolio/${project}`;
+  // window.location.hash = `#/portfolio/${project}`;
 };
 
 // class ProjectItem extends Component {
@@ -54,13 +56,15 @@ const ProjectItem = ({
   subtitle,
   imgUrl,
   redirectUrl,
-  noBackground
+  noBackground,
+  selectProject
 }) => {
+  // console.log("select", selectProject);
   return (
     <Fragment>
       <ItemContainer
         imgURL={noBackground ? "" : imgUrl}
-        onClick={() => handlePageChange(redirectUrl)}
+        onClick={() => selectProject(redirectUrl)}
       >
         <div className="translucent-img" />
         <div className="color" />
@@ -71,7 +75,10 @@ const ProjectItem = ({
   );
 };
 
-export default ProjectItem;
+export default connect(
+  null,
+  { selectProject }
+)(ProjectItem);
 
 // width: ${ props => (props.size ? props.size.width : "430px") };
 // height: ${ props => (props.size ? props.size.height : "210px") };

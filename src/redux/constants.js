@@ -10,3 +10,6 @@ export const CHANGE_SEARCH_VALUE = "CHANGE_SEARCH_VALUE";
 
 // TIL - local
 export const FETCH_TIL_FROM_LOCAL = "FETCH_TIL_FROM_LOCAL";
+
+// Portfolio
+export const SELECT_PROJECT = "SELECT_PROJECT";
