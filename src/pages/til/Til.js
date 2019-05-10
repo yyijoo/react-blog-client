@@ -16,7 +16,8 @@ const TilContainer = styled.div`
 `;
 const TilContentDiv = styled.div`
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  line-height: 1.7;
 `;
 
 const TilContentLeft = styled.div`
@@ -39,7 +40,7 @@ const TilContentLeft = styled.div`
 `;
 
 const TilContentRight = styled.div`
-  margin-left: 2rem;
+  margin-left: 7rem;
   width: 800px;
 `;
 
@@ -91,7 +92,7 @@ class Til extends Component {
     return (
       <Wrapper>
         <TilContainer>
-          <TilSearch />
+          {/* <TilSearch /> */}
           {!this.state.posts ? (
             "loading..."
           ) : (

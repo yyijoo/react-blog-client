@@ -6,6 +6,7 @@ import { Wrapper } from "components/shared/OuterContainer.js";
 const Row = styled.div`
   display: flex;
   margin-bottom: 2rem;
+  line-height: 1.8;
 
   #basic-info {
     font-size: 2rem;
@@ -13,27 +14,28 @@ const Row = styled.div`
   }
 
   .left-category {
-    flex: 1
+    width: 150px;
     font-size: 1.3rem;
     font-weight: bold;
   }
 
   .right-items {
-    flex: 4
+    margin-left: 6rem;
     .item-name {
       font-size: 1.1rem;
       font-weight: bold;
     }
 
     .item {
+      margin-bottom: 3rem;
       margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
     }
   }
 
   .smaller-text {
     font-size: 0.8rem;
     font-weight: normal;
+    padding-top: -1rem;
   }
 `;
 
@@ -74,9 +76,7 @@ export default () => (
             <div className="item-name project">
               {content.project}, [{content.role}]{" "}
               <span className="smaller-text">{content.term}</span>
-              <div className="smaller-text" style={{ marginTop: "2px" }}>
-                {content.desc}
-              </div>
+              <div className="smaller-text">{content.desc}</div>
             </div>
             <div className="item project">
               {content.item.map(item => (

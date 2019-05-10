@@ -16,7 +16,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderLink = styled(Link)`
-  margin-left: 3rem;
+  margin-left: 4rem;
   color: white;
   max-width: 50%;
   text-decoration: none;
@@ -26,17 +26,19 @@ const HeaderLink = styled(Link)`
 const LogoCircle = styled.img`
   height: 45px;
   width: auto;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  vertical-align: middle;
 `;
 
 const Logo = styled.img`
   height: 15px;
   position: absolute;
   left: 23px;
-  top: 22px;
+  top: 24px;
 `;
-const LogoDiv = styled.div``;
+const LogoDiv = styled.div`
+  margin-left: 1rem;
+  margin-right: 1rem;
+`;
 
 const Header = () => {
   return (
