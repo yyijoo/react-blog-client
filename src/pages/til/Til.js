@@ -12,11 +12,11 @@ import { addTil } from "components/shared/api";
 const TilContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  max-width: 90%;
 `;
 const TilContentDiv = styled.div`
   display: flex;
   margin-bottom: 3rem;
-  max-width: 900px;
 `;
 
 const TilContentLeft = styled.div`

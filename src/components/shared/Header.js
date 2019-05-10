@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import circle from "data/image/circle.png";
 import { faintBlack } from "components/shared/colors.js";
+import logo from "data/image/logo.png";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -22,17 +23,28 @@ const HeaderLink = styled(Link)`
   font-size: 14px;
 `;
 
-const Logo = styled.img`
-  height: 40px;
+const LogoCircle = styled.img`
+  height: 45px;
   width: auto;
   margin-left: 1rem;
   margin-right: 1rem;
 `;
 
+const Logo = styled.img`
+  height: 15px;
+  position: absolute;
+  left: 23px;
+  top: 22px;
+`;
+const LogoDiv = styled.div``;
+
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src={circle} />
+      <LogoDiv>
+        <Logo src={logo} />
+        <LogoCircle src={circle} />
+      </LogoDiv>
       <HeaderLink to="/about">ABOUT</HeaderLink>
       <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
       <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}
