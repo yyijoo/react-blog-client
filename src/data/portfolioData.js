@@ -8,7 +8,13 @@ import psqMember from "data/image/psqMember.jpg";
 
 export const projectAsEngineer = [
   {
-    title: "Sool(on progress)",
+    title: "Sool(in progress)",
+    term: "2019.04 - ",
+    imgUrl: "",
+    redirectUrl: ""
+  },
+  {
+    title: "Personal Website",
     term: "2019.04 - ",
     imgUrl: "",
     redirectUrl: ""
