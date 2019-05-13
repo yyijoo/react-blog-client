@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   margin-left: 8rem;
   margin-top: 10rem;
   color: ${faintBlack};
+  line-height: 1.7;
 `;
 
 export default NarrowedContainer;

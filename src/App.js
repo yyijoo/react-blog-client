@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "components/shared/Header";
 import Error from "components/shared/Error";
 import { HashRouter, Route, Switch } from "react-router-dom";
+import About from "pages/about/About";
 import Til from "pages/til/Til";
 import Resume from "pages/resume/Resume";
 import Portfolio from "pages/portfolio/Portfolio";
@@ -15,6 +16,8 @@ class App extends Component {
           <Header />
           <div style={{ marginTop: "62px" }}>
             <Switch>
+              <Route exact path="/" component={About} />
+              <Route exact path="/about" component={About} />
               <Route exact path="/til" component={Til} />
               <Route exact path="/resume" component={Resume} />
               <Route exact path="/portfolio/" component={Portfolio} />

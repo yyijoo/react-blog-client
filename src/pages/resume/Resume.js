@@ -2,66 +2,76 @@ import React from "react";
 import styled from "styled-components";
 import resumeData from "data/resumeData.js";
 import { Wrapper } from "components/shared/OuterContainer.js";
+import { DividedDiv } from "components/shared/DividedDiv.js";
+import BasicInfo from "pages/resume/BasicInfo";
+import TechSkills from "pages/resume/TechSkills";
+import Projects from "pages/resume/Projects";
+import Education from "pages/resume/Education";
 
-const Row = styled.div`
-  display: flex;
-  margin-bottom: 2rem;
-  line-height: 1.8;
+// const Row = styled.div`
+//   display: flex;
+//   margin-bottom: 2rem;
 
-  #basic-info {
-    font-size: 2rem;
-    font-weight: bold;
-  }
+//   #basic-info {
+//     font-size: 2rem;
+//     font-weight: bold;
+//   }
 
-  .left-category {
-    width: 150px;
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
+//   .left-category {
+//     width: 150px;
+//     font-size: 1.3rem;
+//     font-weight: bold;
+//   }
 
-  .right-items {
-    margin-left: 6rem;
-    .item-name {
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
+//   .right-items {
+//     margin-left: 6rem;
+//     .item-name {
+//       font-size: 1.1rem;
+//       font-weight: bold;
+//     }
 
-    .item {
-      margin-bottom: 3rem;
-      margin-top: 0.5rem;
-    }
-  }
+//     .item {
+//       margin-bottom: 3rem;
+//     }
+//   }
 
-  .smaller-text {
-    font-size: 0.8rem;
-    font-weight: normal;
-    padding-top: -1rem;
-  }
+//   .smaller-text {
+//     font-size: 0.8rem;
+//     font-weight: normal;
+//     padding-top: -1rem;
+//   }
+// `;
+
+const Category = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 `;
-
-export default () => (
+const Resume = () => (
   <Wrapper>
-    <Row>
-      <div className="left-category" id="basic-info">
-        이주연
-      </div>
-      <div className="right-items">
-        010 - 2415 - 2026
-        <br />
-        yyijoo@gmail.com
-        <br />
-        github.com/yyijoo
-      </div>
-    </Row>
-    <Row>
+    <BasicInfo />
+    <Category>TechnicalSkills</Category>
+    <TechSkills data={resumeData.techSkill} />
+    <Category>Projects</Category>
+    <Projects data={resumeData.projects} />
+    <Category>Experiences</Category>
+    <Projects data={resumeData.experiences} />
+    <Category>Education</Category>
+    <Projects data={resumeData.education} />
+    {/* <Projects data={resumeData.education} /> */}
+    {/* <Row>
       <div className="left-category">{resumeData.techSkill.category}</div>
       <div className="right-items">
         {resumeData.techSkill.contents.map(content => (
           <div>
             <div className="item-name">{content.itemName}</div>
             <div className="item">
-              {content.items.map(item => (
-                <span>{item} </span>
+              {content.items.map((item, index) => (
+                <span>
+                  {item}
+                  {content.items.length - 1 === index ? "" : ",  "}
+                </span>
               ))}
             </div>
           </div>
@@ -121,6 +131,8 @@ export default () => (
           ))}
         </div>
       </div>
-    </Row>
+    </Row> */}
   </Wrapper>
 );
+
+export default Resume;
