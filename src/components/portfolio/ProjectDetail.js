@@ -5,13 +5,21 @@ import { connect } from "react-redux";
 
 const Container = styled.div`
   width: 80%;
+
   .pic {
     width: 400px;
     height: auto;
   }
-  .ci {
+
+  .title-ci {
     height: 40px;
     width: auto;
+    margin-bottom: 1rem;
+  }
+
+  .title-text {
+    font-size: 1.3rem;
+    font-weight: bold;
     margin-bottom: 1rem;
   }
 
@@ -38,11 +46,22 @@ class ProjectDetail extends Component {
           ""
         ) : (
           <div>
+            {/* CI 있을 때만 rendering - business developer용*/}
             {projects[selectedProject].ci ? (
-              <img src={projects[selectedProject].ci} className="ci" />
+              <img src={projects[selectedProject].ci} className="title-ci" />
             ) : (
               ""
             )}
+            {/* Title 있을 때만 rendering - software engineer용*/}
+            {projects[selectedProject].title ? (
+              <div className="title-text">
+                {projects[selectedProject].title}
+              </div>
+            ) : (
+              ""
+            )}
+            {/* 아래는 항상 rendering */}
+            <hr />
             <div className="desc">{projects[selectedProject].desc}</div>
             <ul>
               {projects[selectedProject].items.map(item => (

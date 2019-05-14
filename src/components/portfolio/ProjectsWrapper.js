@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import styled from "styled-components";
-import ProjectDetailLeft from "pages/portfolio/projectDetailLeft";
+import ProjectDetail from "components/portfolio/projectDetailLeft";
 import { connect } from "react-redux";
 
 const Container = styled.div`
@@ -62,7 +62,7 @@ class ProjectsWrapper extends Component {
           </div>
         </div>
         <ProjectDetailDiv isSelected={section === selectedProjectSection}>
-          <ProjectDetailLeft />
+          <ProjectDetail />
         </ProjectDetailDiv>
       </Container>
     );
@@ -70,8 +70,6 @@ class ProjectsWrapper extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-
   let selectedProjectSection;
 
   if (
