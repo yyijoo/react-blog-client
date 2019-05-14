@@ -2,8 +2,9 @@ import React from "react";
 import { DividedDiv } from "components/shared/DividedDiv.js";
 import List from "components/resume/List";
 import styled from "styled-components";
-import personIcon from "data/image/person.png";
-import descIcon from "data/image/desc.png";
+// import personIcon from "data/image/person.png";
+import descIcon from "data/image/resume/desc.png";
+import Icon from "components/resume/Icon";
 
 const ProjectsContent = ({ data }) => {
   const Container = styled.div`
@@ -12,15 +13,6 @@ const ProjectsContent = ({ data }) => {
     .desc {
       position: relative;
     }
-  `;
-
-  const Icon = styled.img`
-    width: 18px;
-    height: auto;
-    position: absolute;
-    top: 3px;
-    left: -25px;
-    z-index: -1;
   `;
 
   return (
