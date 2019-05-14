@@ -42,14 +42,14 @@ export const projectAsEngineer = [
 
 export const projectAsBusinessDeveloper = [
   {
-    title: "kakaomobility",
-    term: "2019.02 - 2019.03",
+    title: "kakao & kakaomobility",
+    term: "2016.03 - 2018.05",
     imgUrl: codestatesWebsite,
     redirectUrl: "kakao"
   },
   {
     title: "Parking Square",
-    term: "2019.02 - 2019.03",
+    term: "2014.04 - 2016.03",
     imgUrl: codestatesWebsite,
     redirectUrl: "psq"
   }
