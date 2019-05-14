@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import circle from "data/image/circle.png";
+import circle from "data/image/shared/circle.png";
 import { faintBlack } from "components/shared/colors.js";
-import logo from "data/image/logo.png";
+import logo from "data/image/shared/logo.png";
 
 const HeaderWrapper = styled.div`
   display: flex;

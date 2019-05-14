@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import * as SearchIcon from "components/shared/searchicon.png";
+import SearchIcon from "data/image/shared/searchicon.png";
 import { searchTil } from "redux/action/tilAction.js";
 import { connect } from "react-redux";
 

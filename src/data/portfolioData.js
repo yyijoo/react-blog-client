@@ -1,10 +1,11 @@
-import codestatesWebsite from "data/image/codestatesWebsite.png";
-import kakaoMobilityCi from "data/image/kakaoMobilityCi.png";
-import kakaoParking from "data/image/kakaoParking.jpg";
-import kakaoTaxi from "data/image/kakaoTaxi.jpg";
-import psqCi from "data/image/parkingSquare.jpg";
-import parkhere from "data/image/parkhere.png";
-import psqMember from "data/image/psqMember.jpg";
+import codestatesWebsite from "data/image/portfolio/codestatesWebsite.png";
+import kakaoMobilityCi from "data/image/portfolio/kakaoMobilityCi.png";
+import kakaoParking from "data/image/portfolio/kakaoParking.jpg";
+import kakaoTaxi from "data/image/portfolio/kakaoTaxi.jpg";
+import psqCi from "data/image/portfolio/parkingSquare.jpg";
+import parkhere from "data/image/portfolio/parkhere.png";
+import psqMember from "data/image/portfolio/psqMember.jpg";
+import sool from "data/image/portfolio/sool.png";
 
 export const projectAsEngineer = [
   {
@@ -57,6 +58,12 @@ export const projectAsBusinessDeveloper = [
 export const projects = {
   kakao: {
     ci: kakaoMobilityCi,
+    urls: [
+      {
+        text: "www.kakaocorp.com/service/KakaoT",
+        link: "https://www.kakaocorp.com/service/KakaoT"
+      }
+    ],
     desc:
       "파킹스퀘어가 인수되면서 카카오 O2O조직에 합류했습니다. 주차장을 찾고 이용할 수 있는 카카오파킹 런칭을 위한 목적조직인 파킹TF를 시작으로, 사업기획팀에 소속되어 카카오택시 시승, 신차판매 플랫폼, 카카오드라이버 서비스를 담당했습니다.",
     items: [
@@ -69,6 +76,7 @@ export const projects = {
   },
   psq: {
     ci: psqCi,
+    urls: [{ text: "parkingsq.com", link: "http://parkingsq.com/" }],
     desc:
       "주차 예약 서비스 ‘파크히어'를 만드는 파킹스퀘어에서 시리즈A 투자를 받고 카카오에 인수되기까지 전략기획팀 소속으로 일했습니다.",
     items: [
@@ -94,7 +102,8 @@ export const projects = {
   cswebsite: {
     title: "Codestates official website",
     desc: "Codestates 코스 안내, 신청, 결제 및 상담이 이뤄지는 공식 웹사이트",
-    url: "https://codestatese.com",
+
+    urls: [{ text: "codestates.com", link: "https://codestates.com" }],
     items: [
       "금액 할인 쿠폰 기능 개발",
       "static data로 관리되던 정보들을 DB화",
@@ -105,6 +114,7 @@ export const projects = {
   },
   jobstates: {
     title: "Jobstates",
+    urls: [{ text: "서비스 소개 영상", link: "https://youtu.be/V_AzVXW2QZM" }],
     desc:
       "Codestates program 중 진행한 4주 프로젝트. 채용 공고를 정리하고 이력 관리를 할 수 있는 웹사이트",
     items: [
@@ -120,7 +130,17 @@ export const projects = {
   personal: {
     title: "Personal website",
     desc: "이력 소개 및 TIL, Blog 작성용 개인 포트폴리오 웹사이트",
-    url: "",
+    urls: [
+      {
+        text: "figma 기획서",
+        link:
+          "https://www.figma.com/file/NiDa63qW31TdV98Te2t9UhUM/blog?node-id=3%3A0"
+      },
+      {
+        text: "Github",
+        link: "https://github.com/yyijoo/react-blog-client/tree/master"
+      }
+    ],
     items: [
       "figma를 활용한 서비스 기능 정의 및 레이아웃 기획",
       "markdown file rendering"
@@ -133,6 +153,7 @@ export const projects = {
     items: [
       "figma를 활용한 서비스 기능 정의 및 레이아웃 기획",
       "react-native, redux 기반 앱 구조 설계"
-    ]
+    ],
+    pics: [sool]
   }
 };

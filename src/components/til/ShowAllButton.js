@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import back from "data/image/back.png";
+import back from "data/image/til/back.png";
 
 const Button = styled.div`
   background: #e5e5e5;
