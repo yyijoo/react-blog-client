@@ -6,7 +6,6 @@ import About from "pages/about/About";
 import Til from "pages/til/Til";
 import Resume from "pages/resume/Resume";
 import Portfolio from "pages/portfolio/Portfolio";
-import ProjectDetail from "pages/portfolio/ProjectDetail";
 
 class App extends Component {
   render() {
@@ -21,11 +20,6 @@ class App extends Component {
               <Route exact path="/til" component={Til} />
               <Route exact path="/resume" component={Resume} />
               <Route exact path="/portfolio/" component={Portfolio} />
-              <Route
-                exact
-                path="/portfolio/:project"
-                component={ProjectDetail}
-              />
               <Route component={Error} />
             </Switch>
           </div>
