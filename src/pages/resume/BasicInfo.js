@@ -5,12 +5,18 @@ import githubIcon from "data/image/resume/github.png";
 import mailIcon from "data/image/resume/mail.png";
 import phoneIcon from "data/image/resume/phone.png";
 import Icon from "components/resume/Icon";
+import { faintBlack } from "components/shared/colors";
 
 const BasicInfoContent = () => {
   const Container = styled.div`
     .relative-div {
       position: relative;
     }
+  `;
+
+  const A = styled.a`
+    text-decoration: none;
+    color: ${faintBlack};
   `;
   return (
     <Container>
@@ -24,7 +30,9 @@ const BasicInfoContent = () => {
       </div>
       <div className="relative-div">
         <Icon src={githubIcon} />
-        github.com/yyijoo
+        <A href="https://github.com/yyijoo" target="_blank">
+          github.com/yyijoo
+        </A>
       </div>
     </Container>
   );
