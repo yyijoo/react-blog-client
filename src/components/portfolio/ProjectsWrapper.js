@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import styled from "styled-components";
-import ProjectDetail from "components/portfolio/projectDetailLeft";
+import ProjectDetail from "components/portfolio/projectDetail";
 import { connect } from "react-redux";
 
 const Container = styled.div`
