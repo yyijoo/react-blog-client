@@ -4,8 +4,7 @@ import aboutData from "data/aboutData";
 import styled from "styled-components";
 
 const AboutMeDiv = styled.div`
-  margin-right: 8rem;
-
+  width: 100%;
   .value-title {
     margin: 1rem 0;
   }

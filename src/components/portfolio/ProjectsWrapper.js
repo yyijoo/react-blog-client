@@ -4,6 +4,7 @@ import ProjectDetail from "components/portfolio/projectDetail";
 import { connect } from "react-redux";
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   margin-top: 6rem;
   margin-bottom: 8rem;
@@ -17,16 +18,11 @@ const Container = styled.div`
     margin-bottom: 2rem;
     font-weight: bold;
   }
-
-  .content-detail {
-    min-width: 600px;
-    margin-left: 8rem;
-  }
 `;
 
 const ProjectDetailDiv = styled.div`
-  min-width: 600px;
-  margin-left: 8rem;
+  width: 100%;
+  margin-left: 4rem;
 
   display: ${props => (props.isSelected ? "" : "none")};
 `;
