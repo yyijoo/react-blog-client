@@ -30,7 +30,7 @@ export default {
         role: "Front-end Engineer",
         term: "2019.02 - 2019.03",
         desc:
-          "통합 수강생 관리, 웹사이트 콘텐츠 관리, 결제 관리를 위한 관리자 페이지",
+          "Full-stack | 통합 수강생 관리, 웹사이트 콘텐츠 관리, 결제 관리를 위한 관리자 페이지",
         items: [
           "템플릿 기반 웹앱 기획 및 클라이언트 구조 설계",
           "수강생 정보 CRUD 인터페이스 및 REST API 구현"
@@ -40,7 +40,8 @@ export default {
         title: "Codestates Website",
         role: "Front-end",
         term: "2019.02 - 2019.03",
-        desc: "코스 안내, 신청, 결제 및 상담이 이뤄지는 공식 웹사이트",
+        desc:
+          "Full-stack | 코스 안내, 신청, 결제 및 상담이 이뤄지는 공식 웹사이트",
         items: [
           "React, Redux, styled - component를 활용한 통합 수강생 관리 페이지 개발",
           "수강신청, 코스소개, 메인 페이지 UI 개편",
@@ -53,7 +54,7 @@ export default {
         role: "Front-end Engineer",
         term: "2018.12 - 2018.12",
         desc:
-          "통합 수강생 관리, 웹사이트 콘텐츠 관리, 결제 관리를 위한 관리자 페이지",
+          "Front-end | 통합 수강생 관리, 웹사이트 콘텐츠 관리, 결제 관리를 위한 관리자 페이지",
         items: [
           "React & Redux를 사용한 웹앱 구조 설계",
           "전체 레이아웃 설계 및 구현",
@@ -66,7 +67,8 @@ export default {
         title: "My-Log",
         role: "Front-end & Back-end Engineer",
         term: "2018.11 - 2018.11",
-        desc: "사진 및 텍스트로 일상을 기록 및 관리하는 온라인 일기 서비스",
+        desc:
+          "Full-stack | 사진 및 텍스트로 일상을 기록 및 관리하는 온라인 일기 서비스",
         items: [
           "Express & Sequelize로 CRUD",
           "AWS S3 이미지 업로드 기능",
@@ -81,7 +83,7 @@ export default {
       {
         title: "코드스테이츠",
         term: "2019.01 - 2019.03 / 3개월",
-        desc: "Fullstack Engineer",
+        desc: "Full-stack Engineer",
         items: [
           "코드스테이츠 공식 웹사이트 및 관리자 사이트 개발",
           "코드스테이츠 프리 및 이머시브 코스 교육 지원"
@@ -125,13 +127,13 @@ export default {
         title: "Code States",
         term: "2018.10 - 2018.12 ",
         // items: ["Advanced Software Engineering Immersive Program"]
-        desc: "Advanced Software Engineering Immersive Program"
+        desc: "Advanced Software Engineering Immersive Program 수료"
       },
       {
         title: "성균관대학교 ",
         term: "2011.03 - 2016.02",
         // items: ["사회학 학사 편입"]
-        desc: "사회학 학사 편입"
+        desc: "사회학 학사 편입, 졸업"
       },
       {
         title: "한국외국어대학교 글로벌캠퍼스",
