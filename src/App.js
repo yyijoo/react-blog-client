@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Header from "components/shared/Header";
 import Error from "components/shared/Error";
 import { HashRouter, Route, Switch } from "react-router-dom";
@@ -6,14 +6,19 @@ import About from "pages/about/About";
 import Til from "pages/til/Til";
 import Resume from "pages/resume/Resume";
 import Portfolio from "pages/portfolio/Portfolio";
+import styled from "styled-components";
+
+const ContentsBelowHeaderContainer = styled.div`
+  margin-top: 62px;
+`;
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <HashRouter>
           <Header />
-          <div style={{ marginTop: "62px" }}>
+          <ContentsBelowHeaderContainer>
             <Switch>
               <Route exact path="/" component={About} />
               <Route exact path="/about" component={About} />
@@ -22,9 +27,9 @@ class App extends Component {
               <Route exact path="/portfolio/" component={Portfolio} />
               <Route component={Error} />
             </Switch>
-          </div>
+          </ContentsBelowHeaderContainer>
         </HashRouter>
-      </div>
+      </Fragment>
     );
   }
 }
