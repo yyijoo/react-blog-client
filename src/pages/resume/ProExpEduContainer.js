@@ -1,8 +1,7 @@
 import React from "react";
-import { DividedDiv } from "components/shared/DividedDiv.js";
+import { DividedDiv } from "components/resume/DividedDiv.js";
 import List from "components/resume/List";
 import styled from "styled-components";
-// import personIcon from "data/image/person.png";
 import descIcon from "data/image/resume/desc.png";
 import Icon from "components/resume/Icon";
 

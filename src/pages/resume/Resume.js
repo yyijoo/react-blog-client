@@ -4,7 +4,7 @@ import resumeData from "data/resumeData.js";
 import { Wrapper } from "components/shared/OuterContainer.js";
 import BasicInfo from "pages/resume/BasicInfo";
 import TechSkills from "pages/resume/TechSkills";
-import Projects from "pages/resume/Projects";
+import ProExpEduContainer from "pages/resume/ProExpEduContainer";
 
 const Category = styled.div`
   font-size: 1.5rem;
@@ -22,11 +22,11 @@ const Resume = () => (
     <Category>Technical Skills</Category>
     <TechSkills data={resumeData.techSkill} />
     <Category>Projects</Category>
-    <Projects data={resumeData.projects} />
+    <ProExpEduContainer data={resumeData.projects} />
     <Category>Experiences</Category>
-    <Projects data={resumeData.experiences} />
+    <ProExpEduContainer data={resumeData.experiences} />
     <Category>Education</Category>
-    <Projects data={resumeData.education} />
+    <ProExpEduContainer data={resumeData.education} />
   </Wrapper>
 );
 
