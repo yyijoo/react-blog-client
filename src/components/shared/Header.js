@@ -18,6 +18,7 @@ const HeaderWrapper = styled.div`
     height: 40px;
     justify-contenet: space-around;
     text-align: center;
+    width: 100vw;
   }
 `;
 
