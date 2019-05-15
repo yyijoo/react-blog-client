@@ -11,6 +11,10 @@ const BasicInfoContent = () => {
   const Container = styled.div`
     .relative-div {
       position: relative;
+
+      @media screen and (max-width: 500px) {
+        margin: 0;
+      }
     }
   `;
 

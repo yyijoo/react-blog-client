@@ -11,11 +11,15 @@ const Category = styled.div`
   font-weight: bold;
   margin-top: 3rem;
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 `;
 const Resume = () => (
   <Wrapper>
     <BasicInfo />
-    <Category>TechnicalSkills</Category>
+    <Category>Technical Skills</Category>
     <TechSkills data={resumeData.techSkill} />
     <Category>Projects</Category>
     <Projects data={resumeData.projects} />

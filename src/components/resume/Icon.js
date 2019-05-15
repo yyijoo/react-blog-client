@@ -7,6 +7,10 @@ const Icon = styled.img`
   top: 3px;
   left: -25px;
   z-index: -1;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export default Icon;
