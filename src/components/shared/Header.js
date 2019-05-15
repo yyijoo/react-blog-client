@@ -13,6 +13,12 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
+
+  @media screen and (max-width: 500px) {
+    height: 40px;
+    justify-contenet: space-around;
+    text-align: center;
+  }
 `;
 
 const HeaderLink = styled(Link)`
@@ -21,6 +27,11 @@ const HeaderLink = styled(Link)`
   max-width: 50%;
   text-decoration: none;
   font-size: 14px;
+
+  @media screen and (max-width: 500px) {
+    margin: 0;
+    flex: 1;
+  }
 `;
 
 const LogoCircle = styled.img`
@@ -38,6 +49,10 @@ const Logo = styled.img`
 const LogoDiv = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Header = () => {
