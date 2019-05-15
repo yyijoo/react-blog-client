@@ -12,12 +12,21 @@ import { addTil } from "components/shared/api";
 const TilContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  max-width: 90%;
 `;
 const TilContentDiv = styled.div`
   display: flex;
   margin-bottom: 5rem;
   line-height: 1.7;
+
+  a {
+    word-wrap: break-word;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 90vw;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 `;
 
 const TilContentLeft = styled.div`
@@ -37,11 +46,23 @@ const TilContentLeft = styled.div`
   .period {
     font-size: 0.8rem;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+
+    .left-title {
+      position: static;
+    }
+  }
 `;
 
 const TilContentRight = styled.div`
   margin-left: 7rem;
   width: 800px;
+  @media screen and (max-width: 500px) {
+    margin: 0;
+    width: 100%;
+  }
 `;
 
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::: //
@@ -74,8 +95,6 @@ class Til extends Component {
 
     posts.sort((ele, nextEle) => nextEle.week - ele.week);
 
-    console.log("posts", posts);
-
     this.setState({ posts });
   }
 
@@ -87,8 +106,6 @@ class Til extends Component {
     if (searchResult !== "") {
       content = searchResult;
     }
-    console.log("til rerendered", this.state);
-
     return (
       <Wrapper>
         <TilContainer>
@@ -107,7 +124,7 @@ class Til extends Component {
                       </div>
                     </TilContentLeft>
                     <TilContentRight>
-                      <MarkDown>{til.content}</MarkDown>
+                      <MarkDown className="markdown">{til.content}</MarkDown>
                     </TilContentRight>
                   </TilContentDiv>
                 );
