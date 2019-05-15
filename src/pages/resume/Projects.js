@@ -12,6 +12,10 @@ const ProjectsContent = ({ data }) => {
 
     .desc {
       position: relative;
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 1rem;
+      }
     }
   `;
 

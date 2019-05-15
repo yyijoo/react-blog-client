@@ -5,13 +5,15 @@ import { connect } from "react-redux";
 import AlinkWithIcon from "components/portfolio/AlinkWithIcon";
 
 const Container = styled.div`
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 500px) {
     display: none;
   }
 
+  margin-top: -1rem;
+
   font-size: 1rem;
   .pic {
-    width: 70%;
+    width: 100%;
     height: auto;
   }
 
@@ -22,20 +24,18 @@ const Container = styled.div`
     padding-bottom: -1rem;
   }
 
-  .title-text {
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-
   .desc {
     margin-bottom: 2rem;
+
+    @media screen and (max-width: 500px) {
+      margin-bottom: 1rem;
+    }
   }
 
   ul {
     display: block;
     list-style-type: disc;
     margin-block-start: 0;
-    margin-block-end: 2rem;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 20px;
@@ -51,7 +51,7 @@ const Hr = styled.hr`
   margin-top: 2px;
 `;
 
-class ProjectDetail extends Component {
+class ProjectDetailForMobile extends Component {
   render() {
     const { selectedProject } = this.props;
     return (
@@ -60,21 +60,6 @@ class ProjectDetail extends Component {
           ""
         ) : (
           <div>
-            {/* CI 있을 때만 rendering - business developer 영역*/}
-            {projects[selectedProject].ci ? (
-              <img src={projects[selectedProject].ci} className="title-ci" />
-            ) : (
-              ""
-            )}
-            {/* Title 있을 때만 rendering - software engineer 영역*/}
-            {projects[selectedProject].title ? (
-              <div className="title-text">
-                {projects[selectedProject].title}
-              </div>
-            ) : (
-              ""
-            )}
-
             {/* 아래는 software & business 영역 공통 */}
             <Hr />
             <div className="desc">{projects[selectedProject].desc}</div>
@@ -99,6 +84,7 @@ class ProjectDetail extends Component {
                   ))
                 : ""}
             </div>
+            <Hr />
           </div>
         )}
       </Container>
@@ -115,4 +101,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null
-)(ProjectDetail);
+)(ProjectDetailForMobile);

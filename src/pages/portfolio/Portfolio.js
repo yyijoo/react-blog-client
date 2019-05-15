@@ -12,7 +12,8 @@ const returnProjectItem = (
   subtitle,
   imgUrl,
   redirectUrl,
-  noBackground
+  noBackground,
+  isSelected
 ) => (
   <ProjectItem
     title={title}
@@ -20,6 +21,7 @@ const returnProjectItem = (
     imgUrl={imgUrl}
     redirectUrl={redirectUrl}
     noBackground={noBackground}
+    isSelected={isSelected}
   />
 );
 

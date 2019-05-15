@@ -12,31 +12,36 @@ export const projectAsEngineer = [
     title: "Sool",
     term: "2019.04 - ",
     imgUrl: "",
-    redirectUrl: "sool"
+    redirectUrl: "sool",
+    key: "sool"
   },
   {
     title: "Personal website",
     term: "2019.04 - ",
     imgUrl: "",
-    redirectUrl: "personal"
+    redirectUrl: "personal",
+    key: "personal"
   },
   {
     title: "Codestates website",
     term: "2019.02 - 2019.03",
     imgUrl: codestatesWebsite,
-    redirectUrl: "cswebsite"
+    redirectUrl: "cswebsite",
+    key: "cswebsite"
   },
   {
     title: "Codestates admin website",
     term: "2019.02 - 2019.03",
     imgURL: "",
-    redirectUrl: "csadmin"
+    redirectUrl: "csadmin",
+    key: "csadmin"
   },
   {
     title: "Jobstates",
     term: "2018.12 - 2018.12",
     imgUrl: "",
-    redirectUrl: "jobstates"
+    redirectUrl: "jobstates",
+    key: "jobstates"
   }
 ];
 
@@ -45,13 +50,15 @@ export const projectAsBusinessDeveloper = [
     title: "kakao & kakaomobility",
     term: "2016.03 - 2018.05",
     imgUrl: codestatesWebsite,
-    redirectUrl: "kakao"
+    redirectUrl: "kakao",
+    key: "kakao"
   },
   {
     title: "Parking Square",
     term: "2014.04 - 2016.03",
     imgUrl: codestatesWebsite,
-    redirectUrl: "psq"
+    redirectUrl: "psq",
+    key: "psq"
   }
 ];
 
