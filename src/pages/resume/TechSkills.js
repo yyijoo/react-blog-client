@@ -1,5 +1,5 @@
 import React from "react";
-import { DividedDiv } from "components/shared/DividedDiv.js";
+import { DividedDiv } from "components/resume/DividedDiv.js";
 import ItemsWithComma from "components/resume/ItemsWithComma";
 
 const TechSkills = ({ data }) => {

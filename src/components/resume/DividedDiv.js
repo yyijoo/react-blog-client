@@ -1,26 +1,77 @@
-// import React from "react";
-// import styled from "styled-components";
+import React, { Fragment } from "react";
+import styled from "styled-components";
 
-// const Container = styled.div`
-//   display: flex;
+export const DividedDiv = ({ leftCategory, rightContent, basicInfo }) => {
+  console.log("dividedDiv", leftCategory.name, rightContent, basicInfo);
+  const Container = styled.div`
+    display: flex;
 
-//   .left-category {
-//     width: 150px;
-//     border: 1px soilid red;
-//   }
+    @media screen and (max-width: 500px) {
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
 
-//   .rigght-category {
-//     border: 1px solid green;
-//   }
-// `;
+    .left-category {
+      .left-category-name {
+        width: 300px;
+        font-size: ${props => (props.basicInfo ? "3rem" : "1rem")};
+        font-weight: bold;
 
-// const DividedDiv = () => {
-//   return (
-//     <Container>
-//       <div className="left-category" />
-//       <div className="right-content" />
-//     </Container>
-//   );
-// };
+        @media screen and (max-width: 500px) {
+          display: inline;
+          margin: 0;
+          font-size: ${props => (props.basicInfo ? "3rem" : "1.2rem")};
+        }
+      }
 
-// export default DividedDiv;
+      .left-category-term {
+        font-size: 10px;
+
+        @media screen and (max-width: 500px) {
+          display: inline;
+          font-size: 0.8rem;
+        }
+      }
+
+      .name-term-divider {
+        display: none;
+        @media screen and (max-width: 500px) {
+          display: inline;
+          margin: 0.5rem;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .right-content {
+      margin-left: 3rem;
+      font-size: 1rem;
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  `;
+  return (
+    <Container basicInfo={basicInfo}>
+      <div className="left-category">
+        <div className="left-category-name">{leftCategory.name}</div>
+
+        {leftCategory.term ? (
+          <Fragment>
+            <span className="name-term-divider">-</span>
+            <div className="left-category-term">{leftCategory.term}</div>
+          </Fragment>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className="right-content">{rightContent}</div>
+    </Container>
+  );
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { DividedDiv } from "components/shared/DividedDiv.js";
+import { DividedDiv } from "components/resume/DividedDiv.js";
 import styled from "styled-components";
 import githubIcon from "data/image/resume/github.png";
 import mailIcon from "data/image/resume/mail.png";
