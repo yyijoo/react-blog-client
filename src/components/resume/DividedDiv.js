@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 export const DividedDiv = ({ leftCategory, rightContent, basicInfo }) => {
-  console.log("dividedDiv", leftCategory.name, rightContent, basicInfo);
   const Container = styled.div`
     display: flex;
 

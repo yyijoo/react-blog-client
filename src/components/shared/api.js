@@ -27,7 +27,6 @@ export const addTil = values => {
 };
 
 export const fetchLocalTil = async (markdownFiles, dispatch) => {
-  console.log("api", markdownFiles);
   Promise.all(
     markdownFiles.map(file => fetch(file.content).then(res => res.text()))
   )
