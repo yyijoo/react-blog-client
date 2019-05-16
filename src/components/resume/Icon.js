@@ -4,7 +4,7 @@ const Icon = styled.img`
   width: 18px;
   height: auto;
   position: absolute;
-  top: 3px;
+  top: 6px;
   left: -25px;
   z-index: -1;
 
