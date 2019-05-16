@@ -43,13 +43,20 @@ const ProjectItem = ({
   redirectUrl,
   noBackground,
   isSelected,
-  selectProject
+  selectProject,
+  selectedProject
 }) => {
   return (
     <Fragment>
       <ItemContainer
         imgURL={noBackground ? "" : imgUrl}
-        onClick={() => selectProject(redirectUrl)}
+        onClick={() => {
+          if (selectedProject !== null) {
+            selectProject(null);
+          } else {
+            selectProject(redirectUrl);
+          }
+        }}
         isSelected={isSelected}
       >
         <div className="translucent-img" />
@@ -62,7 +69,13 @@ const ProjectItem = ({
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    selectedProject: state.portfolioReducer.selectedProject
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { selectProject }
 )(ProjectItem);
