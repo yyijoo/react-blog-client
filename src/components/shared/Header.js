@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import circle from "data/image/shared/circle.png";
 import { faintBlack } from "components/shared/colors.js";
-import logo from "data/image/shared/logo.png";
+import { Logo } from "components/shared/Logo";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -35,34 +34,10 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-const LogoCircle = styled.img`
-  height: 45px;
-  width: auto;
-  vertical-align: middle;
-`;
-
-const Logo = styled.img`
-  height: 15px;
-  position: absolute;
-  left: 23px;
-  top: 24px;
-`;
-const LogoDiv = styled.div`
-  margin-left: 1rem;
-  margin-right: 1rem;
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
-`;
-
 const Header = () => {
   return (
     <HeaderWrapper>
-      <LogoDiv>
-        <Logo src={logo} />
-        <LogoCircle src={circle} />
-      </LogoDiv>
+      <Logo header />
       <HeaderLink to="/about">ABOUT</HeaderLink>
       <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
       <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}

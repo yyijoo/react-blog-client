@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper } from "components/shared/OuterContainer";
 import aboutData from "data/aboutData";
 import styled from "styled-components";
+import { Logo } from "components/shared/Logo";
 
 const AboutMeDiv = styled.div`
   width: 100%;
@@ -14,6 +15,7 @@ const About = () => {
   return (
     <Wrapper>
       <AboutMeDiv>
+        <Logo />
         Javascript와 React를 사용하는 프론트엔드 개발자입니다. 하나의 기능을
         처음부터 끝까지 스스로 구현하는 완결성을 목표로 틈틈히 백엔드 작업도
         하고 있습니다. 4년간 파킹스퀘어와 카카오에서 사업기획자로 일하며
