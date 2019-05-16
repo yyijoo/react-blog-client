@@ -1,7 +1,7 @@
 import * as c from "redux/constants.js";
 
 const initialState = {
-  selectedProject: null
+  selectedProject: "sool"
 };
 
 const portfolioReducer = (state = initialState, action) => {
