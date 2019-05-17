@@ -2,10 +2,10 @@ import React, { Component, Fragment } from "react";
 import Header from "components/shared/Header";
 import Error from "components/shared/Error";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import About from "pages/about/About";
-import Til from "pages/til/Til";
-import Resume from "pages/resume/Resume";
-import Portfolio from "pages/portfolio/Portfolio";
+import About from "pages/about";
+import Til from "pages/til";
+import Resume from "pages/resume";
+import Portfolio from "pages/portfolio";
 import styled from "styled-components";
 
 const ContentsBelowHeaderContainer = styled.div`
