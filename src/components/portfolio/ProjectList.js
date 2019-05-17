@@ -50,13 +50,9 @@ const ProjectItem = ({
     <Fragment>
       <ItemContainer
         imgURL={noBackground ? "" : imgUrl}
-        onClick={() => {
-          if (selectedProject !== null) {
-            selectProject(null);
-          } else {
-            selectProject(redirectUrl);
-          }
-        }}
+        onClick={() =>
+          isSelected ? selectProject(null) : selectProject(redirectUrl)
+        }
         isSelected={isSelected}
       >
         <div className="translucent-img" />

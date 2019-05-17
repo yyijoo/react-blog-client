@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProjectDetail from "components/portfolio/projectDetail";
 import ProjectDetailForMobile from "components/portfolio/projectDetailForMobile";
 import { connect } from "react-redux";
+import ProjectList from "components/portfolio/ProjectList";
 
 const Container = styled.div`
   width: 100%;
@@ -37,7 +38,6 @@ class ProjectsWrapper extends Component {
       section,
       title,
       data,
-      component,
       noBackground,
       selectedProject,
       selectedProjectSection
@@ -51,14 +51,14 @@ class ProjectsWrapper extends Component {
               return (
                 <Fragment>
                   <span>
-                    {component(
-                      item.title,
-                      item.term,
-                      item.imgUrl,
-                      item.redirectUrl,
-                      noBackground,
-                      item.key === selectedProject
-                    )}
+                    <ProjectList
+                      title={item.title}
+                      subtitle={item.term}
+                      imgUrl={item.imgUrl}
+                      redirectUrl={item.redirectUrl}
+                      noBackground={noBackground}
+                      isSelected={item.key === selectedProject}
+                    />
                   </span>
                   {item.key === selectedProject ? (
                     <ProjectDetailForMobile />
@@ -77,20 +77,6 @@ class ProjectsWrapper extends Component {
     );
   }
 }
-
-const isBusiness = project => {
-  // 선택한 프로젝트가 software enginner 영역인지 business developer 인지 판단
-  if (
-    state.portfolioReducer.selectedProject === "psq" ||
-    state.portfolioReducer.selectedProject === "kakao"
-  ) {
-    selectedProjectSection = "business";
-  } else {
-    selectedProjectSection = "software";
-  }
-
-  return selectedProjectSection;
-};
 
 const mapStateToProps = state => {
   let selectedProjectSection;
