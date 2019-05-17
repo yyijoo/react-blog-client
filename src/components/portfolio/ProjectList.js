@@ -13,7 +13,6 @@ const ItemContainer = styled.div`
   .main-title {
     font-size: 18px;
     display: inline;
-    ${props => console.log("props", props)}
     font-weight: ${props => (props.isSelected ? "bold;" : "")};
     color: ${props => (props.isSelected ? "white" : "")}
     background-color: #303030;
@@ -36,15 +35,14 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ProjectItem = ({
+const ProjectLists = ({
   title,
   subtitle,
   imgUrl,
   redirectUrl,
   noBackground,
   isSelected,
-  selectProject,
-  selectedProject
+  selectProject
 }) => {
   return (
     <Fragment>
@@ -65,13 +63,7 @@ const ProjectItem = ({
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    selectedProject: state.portfolioReducer.selectedProject
-  };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   { selectProject }
-)(ProjectItem);
+)(ProjectLists);

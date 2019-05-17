@@ -60,7 +60,6 @@ const LogoDiv = styled.div`
 `;
 
 export const Logo = ({ header }) => {
-  console.log("header", header);
   return (
     <LogoDiv header={header}>
       <Circle header={header}>

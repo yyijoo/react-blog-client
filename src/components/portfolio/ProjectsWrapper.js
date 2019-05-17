@@ -46,29 +46,23 @@ class ProjectsWrapper extends Component {
       <Container>
         <ProjectListDiv>
           <div className="title">{title}</div>
-          <div className="content">
-            {data.map(item => {
-              return (
-                <Fragment>
-                  <span>
-                    <ProjectList
-                      title={item.title}
-                      subtitle={item.term}
-                      imgUrl={item.imgUrl}
-                      redirectUrl={item.redirectUrl}
-                      noBackground={noBackground}
-                      isSelected={item.key === selectedProject}
-                    />
-                  </span>
-                  {item.key === selectedProject ? (
-                    <ProjectDetailForMobile />
-                  ) : (
-                    ""
-                  )}
-                </Fragment>
-              );
-            })}
-          </div>
+          {data.map(item => {
+            return (
+              <Fragment>
+                <span>
+                  <ProjectList
+                    title={item.title}
+                    subtitle={item.term}
+                    imgUrl={item.imgUrl}
+                    redirectUrl={item.redirectUrl}
+                    noBackground={noBackground}
+                    isSelected={item.key === selectedProject}
+                  />
+                </span>
+                {item.key === selectedProject ? <ProjectDetailForMobile /> : ""}
+              </Fragment>
+            );
+          })}
         </ProjectListDiv>
         <ProjectDetailDiv isSelected={section === selectedProjectSection}>
           <ProjectDetail />

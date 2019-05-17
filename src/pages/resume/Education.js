@@ -1,6 +1,5 @@
 import React from "react";
 import { DividedDiv } from "components/resume/DividedDiv.js";
-import List from "components/resume/List";
 
 const Education = ({ data }) => {
   const EducationContent = () => {
@@ -8,7 +7,6 @@ const Education = ({ data }) => {
   };
   return (
     <div>
-      {console.log("data", data)}
       {data.contents.map(item => (
         <div>
           <DividedDiv

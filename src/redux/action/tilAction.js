@@ -51,14 +51,6 @@ export const searchTil = searchVal => async dispatch => {
   dispatch(beginLoading());
   dispatch(changeSearchVal(searchVal));
   const response = await api.searchTil(searchVal, dispatch);
-
-  // try {
-  //   console.log("1111", response);
-  //   dispatch(succeedInSearching(response.data, true));
-  // } catch (error) {
-  //   console.log(error);
-  //   dispatch(failToFetch());
-  // }
 };
 
 export const showAllTil = () => {
