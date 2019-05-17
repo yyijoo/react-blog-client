@@ -72,7 +72,7 @@ export const projects = {
       }
     ],
     desc:
-      "파킹스퀘어가 인수되면서 카카오 O2O조직에 합류했습니다. 주차장을 찾고 이용할 수 있는 카카오파킹 런칭을 위한 목적조직인 파킹TF를 시작으로, 사업기획팀에 소속되어 카카오택시 시승, 신차판매 플랫폼, 카카오드라이버 서비스를 담당했습니다.",
+      "파킹스퀘어가 인수되면서 카카오 O2O조직에 합류했습니다. 주차장을 찾고 이용할 수 있는 카카오파킹을 위한 목적조직 파킹TF를 시작으로, 사업기획팀에 소속되어 카카오택시 시승, 신차판매 플랫폼, 카카오드라이버 서비스를 담당했습니다.",
     items: [
       "신규 서비스 핵심 가치 정의",
       "수익 창출을 위한 business model 기획 및 실행",
@@ -89,7 +89,7 @@ export const projects = {
     items: [
       "2년 동안 5명이던 팀이 30명이 되는 과정에서의 팀 빌딩과 암묵지 구조적 전파",
       "핵심지표 설정과 데이터를 통해 추출한 인사이트를 서비스에 빠르게 반영",
-      "서비스 핵심 가치와 비전을 정의, 장기적 사업 방향성을 수립 참여",
+      "서비스 핵심 가치와 비전을 정의, 장기적 사업 방향성 수립 참여",
       "브랜딩 작업, 보도자료 작성 등 서비스 핵심 가치 전파",
       "축제, 차량 관련 서비스, 공연장 제휴 등 유저 확장을 위한 채널 발굴"
     ],
@@ -144,7 +144,7 @@ export const projects = {
           "https://www.figma.com/file/NiDa63qW31TdV98Te2t9UhUM/blog?node-id=3%3A0"
       },
       {
-        text: "Github",
+        text: "Github Repository",
         link: "https://github.com/yyijoo/react-blog-client/tree/master"
       }
     ],
@@ -155,7 +155,7 @@ export const projects = {
   },
   sool: {
     title: "Sool",
-    desc: "맥주 정보를 검색과 시음노트용 앱",
+    desc: "맥주 정보를 검색하고 시음노트를 기록하는 앱",
     stacks: ["react-native", "redux", "expo"],
     items: [
       "figma를 활용한 서비스 기능 정의 및 레이아웃 기획",
