@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { showAllTil } from "redux/action/tilAction.js";
 import ShowAllButton from "components/til/ShowAllButton";
 import TocPopover from "components/til/TocPopover";
-import * as tilData from "data/tilData.js";
 
 const SearchBarWrapper = styled.div`
   width: 100%;
