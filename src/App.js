@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Header from "components/shared/Header";
 import Error from "components/shared/Error";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import About from "pages/about";
 import Til from "pages/til";
 import Resume from "pages/resume";
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <HashRouter>
+        <Router>
           <Header />
           <ContentsBelowHeaderContainer>
             <Switch>
@@ -28,7 +28,7 @@ class App extends Component {
               <Route component={Error} />
             </Switch>
           </ContentsBelowHeaderContainer>
-        </HashRouter>
+        </Router>
       </Fragment>
     );
   }
