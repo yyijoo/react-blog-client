@@ -19,22 +19,20 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Provider store={store}>
-          <Router>
-            <Header />
-            <ContentsBelowHeaderContainer>
-              <Switch>
-                <Route exact path="/" component={About} />
-                <Route path="/about" component={About} />
-                <Route path="/til" component={Til} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/portfolio" component={Portfolio} />
-                <Route path="/blog" component={Blog} />
-                <Route component={Error} />
-              </Switch>
-            </ContentsBelowHeaderContainer>
-          </Router>
-        </Provider>
+        <Router>
+          <Header />
+          <ContentsBelowHeaderContainer>
+            <Switch>
+              <Route exact path="/" component={About} />
+              <Route path="/about" component={About} />
+              <Route path="/til" component={Til} />
+              <Route path="/resume" component={Resume} />
+              <Route path="/portfolio/" component={Portfolio} />
+              <Route path="/blog/" component={Blog} />
+              <Route component={Error} />
+            </Switch>
+          </ContentsBelowHeaderContainer>
+        </Router>
       </Fragment>
     );
   }

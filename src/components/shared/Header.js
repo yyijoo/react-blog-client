@@ -64,7 +64,7 @@ const Header = () => {
       <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
       <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}
       <HeaderLink to="/til">TIL</HeaderLink>
-      {/*<HeaderLink to="/blog">BLOG</HeaderLink>*/}
+      <HeaderLink to="/blog">BLOG</HeaderLink>
     </HeaderWrapper>
   );
 };
