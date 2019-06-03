@@ -5,7 +5,7 @@ import MarkDown from "markdown-to-jsx";
 import { connect } from "react-redux";
 import { Wrapper } from "components/shared/OuterContainer.js";
 import TilSearch from "pages/til/TilSearch";
-import { addTil } from "components/shared/api";
+import { addTil } from "utils/api";
 
 // ::::::::::::::::::: Define style ::::::::::::::::::: //
 

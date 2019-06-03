@@ -1,4 +1,4 @@
-import * as api from "components/shared/api.js";
+import * as api from "utils/api.js";
 import * as c from "redux/constants.js";
 
 const beginLoading = () => {
