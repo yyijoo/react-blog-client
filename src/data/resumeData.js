@@ -12,7 +12,7 @@ export default {
       },
       {
         itemName: "Interested",
-        items: ["WebGL", "Aframe"]
+        items: ["WebGL", "Aframe", "MongoDB"]
       }
     ]
   },
