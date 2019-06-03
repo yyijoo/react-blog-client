@@ -12,6 +12,7 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 
   @media screen and (max-width: 500px) {
     height: 40px;
