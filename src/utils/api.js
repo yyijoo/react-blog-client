@@ -2,7 +2,7 @@ import axios from "axios";
 const local = "http://localhost:8080/api";
 import * as c from "redux/constants.js";
 
-export const fetchAllTil = () => axios.get(`${local}/til`);
+export const fetchAll = category => axios.get(`${local}/${category}`);
 
 export const searchTil = (values, dispatch) => {
   axios.get(`${local}/til/search`, { params: values }).then(res => {
