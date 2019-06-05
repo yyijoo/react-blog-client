@@ -73,7 +73,11 @@ class Til extends Component {
   };
 
   async componentDidMount() {
-    const markdownContext = require.context("data/markdown", false, /\.md$/); // 한 폴더에 있는 모든 파일을 불러왔다.
+    const markdownContext = require.context(
+      "data/markdown-til",
+      false,
+      /\.md$/
+    ); // 한 폴더에 있는 모든 파일을 불러왔다.
     const markdownFiles = markdownContext.keys(); // 폴더 이름을 arr로 뽑았다.
 
     const posts = await Promise.all(
