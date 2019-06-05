@@ -13,3 +13,9 @@ export const FETCH_TIL_FROM_LOCAL = "FETCH_TIL_FROM_LOCAL";
 
 // Portfolio
 export const SELECT_PROJECT = "SELECT_PROJECT";
+
+// SHARED-FETCH
+// SHARE-FETCH
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAIL = "FETCH_FAIL";
