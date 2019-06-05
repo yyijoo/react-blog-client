@@ -24,8 +24,8 @@ const About = () => {
         수료했으며 최우수 수료생으로 선정되었습니다.
         <div className="value-title">아래와 같은 가치를 추구합니다.</div>
         <ul>
-          {aboutData.map(item => (
-            <li>{item}</li>
+          {aboutData.map((item, id) => (
+            <li key={id}>{item}</li>
           ))}
         </ul>
       </AboutMeDiv>

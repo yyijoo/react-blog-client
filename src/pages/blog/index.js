@@ -29,15 +29,12 @@ class Blog extends Component {
       return (
         <div>
           {this.state.article.map(ele => (
-            <div>
-              {ele.title}
-              <blogArticleDetail url={ele.url} />
-            </div>
+            <div key={ele._id}>{ele.title}</div>
           ))}
         </div>
       );
     }
-    return <div>ㅇ</div>;
+    return <div>data is not fetched</div>;
     // return <MarkDown>{md.body}</MarkDown>;
   }
 }
