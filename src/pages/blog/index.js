@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import MarkDown from "markdown-to-jsx";
-import blogArticleDetail from "pages/blog/blogArticleDetail";
+import articleDetail from "pages/blog/articleDetail";
 import { fetch } from "redux/action/blogAction";
 import { connect } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
 
 class Blog extends Component {
   state = {
@@ -21,15 +22,18 @@ class Blog extends Component {
     return null;
   };
 
-  _redirectToDetail = () => {};
+  _redirectToDetail = () => <Redirect to="test" />; // _id로 url을 연결한다. component는 articleDetail
+  // _redirectToDetail = () => console.log("clicked"); // _id로 url을 연결한다. component는 articleDetail
 
   render() {
-    console.log("herere", this.state);
+    console.log("herere", this.state, this.props);
     if (this.state.article) {
       return (
         <div>
           {this.state.article.map(ele => (
-            <div key={ele._id}>{ele.title}</div>
+            <div key={ele._id} onClick={() => this._redirectToDetail()}>
+              <Link to={`/blog/${ele._id}`}>{ele.title}</Link>
+            </div>
           ))}
         </div>
       );
