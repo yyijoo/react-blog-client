@@ -4,6 +4,11 @@ import * as c from "redux/constants.js";
 
 export const fetchAll = category => axios.get(`${local}/${category}`);
 
+export const fetchSelectedArticle = _id =>
+  axios.get(`${local}/blog/detail`, {
+    params: _id
+  });
+
 export const searchTil = (values, dispatch) => {
   axios.get(`${local}/til/search`, { params: values }).then(res => {
     const succeedInSearching = payload => {
