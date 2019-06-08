@@ -1,20 +1,38 @@
 import React, { Component } from "react";
 import MarkDown from "markdown-to-jsx";
-import axios from "axios";
 import { connect } from "react-redux";
+import { fetchSelectedArticle } from "redux/action/blogAction";
 
 class articleDetail extends Component {
   state = {
     article: null
   };
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    this.props.fetchSelected(this.props.match.params);
+  }
   render() {
     console.log("shows match.params", this.props.match.params);
+    console.log(this.props, "props");
     return <div />;
   }
 }
 
-const mapStateToProps = state => {};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSelected: _id => {
+      dispatch(fetchSelectedArticle(_id));
+    }
+  };
+};
 
-export default connect()(articleDetail);
+const mapStateToProps = state => {
+  return {
+    selectedArticle: state.blogReducer.selectedArticle
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(articleDetail);

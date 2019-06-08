@@ -21,6 +21,13 @@ const blogReducer = (state = initialState, action) => {
         articles: action.payload
       };
 
+    case c.FETCH_SELECTED_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        selectedArticle: action.payload
+      };
+
     case c.FETCH_FAIL:
       return {
         ...state,

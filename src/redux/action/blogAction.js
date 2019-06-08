@@ -14,6 +14,13 @@ const succeedInFetching = payload => {
   };
 };
 
+const succeedInFetchingSelected = payload => {
+  return {
+    type: c.FETCH_SELECTED_SUCCESS,
+    payload: payload
+  };
+};
+
 const failToFetch = () => {
   return {
     type: c.FETCH_FAIL
@@ -24,10 +31,21 @@ export const fetch = category => async dispatch => {
   dispatch(beginLoading());
 
   try {
-    console.log("hre");
     const response = await api.fetchAll(category);
-    console.log("res", response);
     dispatch(succeedInFetching(response.data));
+  } catch (err) {
+    console.log(err);
+    dispatch(failToFetch());
+  }
+};
+
+export const fetchSelectedArticle = _id => async dispatch => {
+  dispatch(beginLoading());
+
+  try {
+    const res = await api.fetchSelectedArticle(_id);
+    console.log("res in action", res);
+    dispatch(succeedInFetchingSelected(res.data));
   } catch (err) {
     console.log(err);
     dispatch(failToFetch());
