@@ -2,19 +2,35 @@ import React, { Component } from "react";
 import MarkDown from "markdown-to-jsx";
 import { connect } from "react-redux";
 import { fetchSelectedArticle } from "redux/action/blogAction";
+import axios from "axios";
 
 class articleDetail extends Component {
   state = {
     article: null
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchSelected(this.props.match.params);
   }
+
+  componentDidUpdate() {
+    console.log("fetched url", this.props.selectedArticle[0].url);
+    const mdUrl = this.props.selectedArticle[0].url;
+
+    if (!this.state.article) {
+      axios.get(mdUrl).then(res => {
+        console.log("res", res);
+        this.setState({ article: res.data });
+      });
+    }
+  }
+
   render() {
-    console.log("shows match.params", this.props.match.params);
-    console.log(this.props, "props");
-    return <div />;
+    return !this.state.article ? (
+      <div>loading..</div>
+    ) : (
+      <MarkDown>{this.state.article}</MarkDown>
+    );
   }
 }
 
