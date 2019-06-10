@@ -24,7 +24,7 @@ export default {
         role: "Front-end Engineer",
         term: "2019.01 - 2019.03",
         desc:
-          "Codestates 재직 중, 통합 수강생 관리 & 공식 웹사이트 콘텐츠 관리 & 결제 관리를 위한 관리자 웹앱 신규 개발",
+          "통합 수강생 관리 & 공식 웹사이트 콘텐츠 관리 & 결제 관리를 위한 관리자 웹앱 신규 개발",
         items: [
           "Tech Stack : React, Redux, styled-components, Node.js, Express, Sequelize",
           "운영 및 마케팅 담당자의 사용성을 고려해 웹앱 기획",
@@ -37,8 +37,7 @@ export default {
         title: "Codestates Website",
         role: "Front-end",
         term: "2019.01 - 2019.03",
-        desc:
-          "Codestates 재직 중, 코스 안내 & 신청 & 결제 & 상담이 이뤄지는 공식 웹앱 개발",
+        desc: "코스 안내 & 신청 & 결제 & 상담이 이뤄지는 공식 웹앱 개발",
         items: [
           "Tech Stack : React, Redux, styled-components, now",
           "수강신청, 코스소개, 메인 페이지 UI 개편",
