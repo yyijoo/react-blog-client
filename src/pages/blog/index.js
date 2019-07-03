@@ -4,6 +4,7 @@ import articleDetail from "pages/blog/articleDetail";
 import { fetch } from "redux/action/blogAction";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import { Wrapper } from "components/shared/OuterContainer.js";
 
 class Blog extends Component {
   state = {
@@ -29,13 +30,13 @@ class Blog extends Component {
     console.log("herere", this.state, this.props);
     if (this.state.article) {
       return (
-        <div>
+        <Wrapper>
           {this.state.article.map(ele => (
             <div key={ele._id} onClick={() => this._redirectToDetail()}>
               <Link to={`/blog/${ele._id}`}>{ele.title}</Link>
             </div>
           ))}
-        </div>
+        </Wrapper>
       );
     }
     return <div>data is not fetched</div>;
