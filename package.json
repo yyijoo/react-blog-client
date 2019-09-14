@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "aws-sdk": "^2.504.0",
     "axios": "^0.18.0",
     "front-matter-loader": "^0.2.0",
     "highlight.js": "^9.15.6",
@@ -49,6 +50,7 @@
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
     "redux-thunk": "^2.3.0",
+    "scotty": "0.0.2",
     "shebang-loader": "0.0.1",
     "styled-components": "^4.2.0"
   }
