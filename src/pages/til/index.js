@@ -74,7 +74,7 @@ class Til extends Component {
 
   async componentDidMount() {
     const markdownContext = require.context(
-      "data/markdown-til",
+      "data/markdown-til/2019",
       false,
       /\.md$/
     ); // 한 폴더에 있는 모든 파일을 불러왔다.
@@ -117,24 +117,24 @@ class Til extends Component {
           {!this.state.posts ? (
             "loading..."
           ) : (
-            <Fragment>
-              {this.state.posts.map(til => {
-                return (
-                  <TilContentDiv>
-                    <TilContentLeft>
-                      <div className="left-title">
-                        <div className="week">{til.week}주</div>
-                        <span className="period">{til.date}</span>
-                      </div>
-                    </TilContentLeft>
-                    <TilContentRight>
-                      <MarkDown className="markdown">{til.content}</MarkDown>
-                    </TilContentRight>
-                  </TilContentDiv>
-                );
-              })}
-            </Fragment>
-          )}
+              <Fragment>
+                {this.state.posts.map(til => {
+                  return (
+                    <TilContentDiv>
+                      <TilContentLeft>
+                        <div className="left-title">
+                          <div className="week">{til.week}주</div>
+                          <span className="period">{til.date}</span>
+                        </div>
+                      </TilContentLeft>
+                      <TilContentRight>
+                        <MarkDown className="markdown">{til.content}</MarkDown>
+                      </TilContentRight>
+                    </TilContentDiv>
+                  );
+                })}
+              </Fragment>
+            )}
         </TilContainer>
         {/* <button
           onClick={() => {
