@@ -31,6 +31,7 @@ const TilContentDiv = styled.div`
 
 const TilContentLeft = styled.div`
   min-width: 100px;
+  min-height: 110px;
   position: relative;
   padding-top: 1rem;
 
@@ -65,16 +66,45 @@ const TilContentRight = styled.div`
   }
 `;
 
+const YearFilterDiv = styled.div`
+  width: 100%;
+  text-align: right;
+  font-size: 0.8rem;
+`;
+
+const YearSpan = styled.span`
+  border-radius: 4px;
+  background-color: ${props => (props.selected ? "#0071CB" : "none")};
+  color: ${props => (props.selected ? "white" : "black")};
+  padding: 2px 5px;
+  margin-left: 4px;
+`;
+
+const showOneWeekTil = til => (
+  <TilContentDiv>
+    <TilContentLeft>
+      <div className="left-title">
+        <div className="week">{til.week}주</div>
+        <span className="period">{til.date}</span>
+      </div>
+    </TilContentLeft>
+    <TilContentRight>
+      <MarkDown className="markdown">{til.content}</MarkDown>
+    </TilContentRight>
+  </TilContentDiv>
+);
+
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::: //
 
 class Til extends Component {
   state = {
-    posts: null
+    posts: [],
+    selectedYearArr: [2020]
   };
 
-  async componentDidMount() {
+  getLastYearTilData = async () => {
     const markdownContext = require.context(
-      "data/markdown-til",
+      `data/markdown-til/2019`,
       false,
       /\.md$/
     ); // 한 폴더에 있는 모든 파일을 불러왔다.
@@ -99,39 +129,103 @@ class Til extends Component {
 
     posts.sort((ele, nextEle) => nextEle.week - ele.week);
 
-    this.setState({ posts });
-  }
+    return posts;
+  };
+
+  getThisYearTilData = async () => {
+    const markdownContext = require.context(
+      `data/markdown-til/2020`,
+      false,
+      /\.md$/
+    ); // 한 폴더에 있는 모든 파일을 불러왔다.
+    const markdownFiles = markdownContext.keys(); // 폴더 이름을 arr로 뽑았다.
+
+    const posts = await Promise.all(
+      markdownFiles.map(async file => {
+        const filenameArr = file.split("-");
+        const post = {};
+        post.week = filenameArr[0].slice(2);
+        post.date = filenameArr[1] + "-" + filenameArr[2].slice(0, -3);
+
+        const fetchedText = await fetch(markdownContext(file)).then(res =>
+          res.text()
+        );
+
+        post.content = fetchedText;
+
+        return post;
+      })
+    );
+
+    posts.sort((ele, nextEle) => nextEle.week - ele.week);
+
+    return posts;
+  };
+
+  componentDidMount = async () => {
+    const posts = await this.getThisYearTilData();
+    const newPosts = [posts];
+    this.setState({
+      ...this.state,
+      posts: newPosts
+    });
+  };
+
+  handleSelectYear = async year => {
+    const newPosts = [];
+    const newSelectedYearArr = [];
+
+    if (year === 2020) {
+      const posts = await this.getThisYearTilData();
+      newPosts.push(posts);
+      newSelectedYearArr.push(2020);
+    }
+    if (year === 2019) {
+      const posts = await this.getLastYearTilData();
+      newPosts.push(posts);
+      newSelectedYearArr.push(2019);
+    }
+
+    this.setState({
+      ...this.state,
+      posts: newPosts,
+      selectedYearArr: newSelectedYearArr
+    });
+  };
 
   render() {
     const { tilList, searchResult } = this.props;
-
+    const { posts, selectedYearArr } = this.state;
     let content = tilList;
 
     if (searchResult !== "") {
       content = searchResult;
     }
+
     return (
       <Wrapper>
         <TilContainer>
           {/* <TilSearch /> */}
-          {!this.state.posts ? (
-            "loading..."
-          ) : (
+          {!posts && "loading..."}
+          {posts && (
             <Fragment>
-              {this.state.posts.map(til => {
-                return (
-                  <TilContentDiv>
-                    <TilContentLeft>
-                      <div className="left-title">
-                        <div className="week">{til.week}주</div>
-                        <span className="period">{til.date}</span>
-                      </div>
-                    </TilContentLeft>
-                    <TilContentRight>
-                      <MarkDown className="markdown">{til.content}</MarkDown>
-                    </TilContentRight>
-                  </TilContentDiv>
-                );
+              <YearFilterDiv>
+                Year:
+                <YearSpan
+                  selected={selectedYearArr.includes(2020)}
+                  onClick={() => this.handleSelectYear(2020)}
+                >
+                  2020
+                </YearSpan>
+                <YearSpan
+                  selected={selectedYearArr.includes(2019)}
+                  onClick={() => this.handleSelectYear(2019)}
+                >
+                  2019
+                </YearSpan>
+              </YearFilterDiv>
+              {posts.map(oneYearTil => {
+                return oneYearTil.map(til => showOneWeekTil(til));
               })}
             </Fragment>
           )}
@@ -157,7 +251,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(Til);
+export default connect(mapStateToProps, null)(Til);
