@@ -1,5 +1,9 @@
 import * as api from "utils/api.js";
 import * as c from "redux/constants.js";
+import axios from "axios";
+import config from "config.js";
+
+const { API_BASE_URL, API_SPACE_ID, API_TOKEN } = config;
 
 const beginLoading = () => {
   return {
@@ -29,14 +33,23 @@ const failToFetch = () => {
 
 export const fetch = category => async dispatch => {
   dispatch(beginLoading());
-
   try {
-    const response = await api.fetchAll(category);
-    dispatch(succeedInFetching(response.data));
+    const response = await axios.get(
+      `${API_BASE_URL}/spaces/${API_SPACE_ID}/entries?access_token=${API_TOKEN}&content_type=blogPost`
+    );
+    console.log(response);
+    dispatch(succeedInFetching(response.data.items));
   } catch (err) {
-    console.log(err);
-    dispatch(failToFetch());
+    console.log("err", err);
   }
+
+  // try {
+  //   const response = await api.fetchAll(category);
+  //   dispatch(succeedInFetching(response.data));
+  // } catch (err) {
+  //   console.log(err);
+  //   dispatch(failToFetch());
+  // }
 };
 
 export const fetchSelectedArticle = _id => async dispatch => {
