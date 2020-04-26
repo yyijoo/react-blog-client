@@ -5,19 +5,19 @@ import { Wrapper } from "components/shared/OuterContainer.js";
 import styled from "styled-components";
 
 const showListItem = item => {
+  const imgUrl = `https://images.ctfassets.net/dfutqpxkg76k/3OUoFqPysjzMhFIVEIfXCt/6ed4a418e5a643b3e78e865f26ca9843/1.jpeg`;
   return (
     <div>
       <div>{item.postTitle}</div>
       <span>{item.createdAt}</span>{" "}
       <span>{item.postTags && item.postTags.map(tag => tag)}</span>
+      <img src={imgUrl} />
     </div>
   );
 };
 
 class Blog extends Component {
-  state = {
-    posts: null
-  };
+  state = {};
 
   async componentDidMount() {
     this.props.fetch("blog");
