@@ -61,9 +61,10 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Logo header />
+      {/* <div>Jooyeon Yi</div> */}
       <HeaderLink to="/about">ABOUT</HeaderLink>
-      <HeaderLink to="/resume">RESUME</HeaderLink>{" "}
-      <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "}
+      {/* <HeaderLink to="/resume">RESUME</HeaderLink>{" "} */}
+      {/* <HeaderLink to="/portfolio">PORTFOLIO</HeaderLink>{" "} */}
       <HeaderLink to="/til">TIL</HeaderLink>
       {/* <HeaderLink to="/blog">BLOG</HeaderLink> */}
     </HeaderWrapper>
